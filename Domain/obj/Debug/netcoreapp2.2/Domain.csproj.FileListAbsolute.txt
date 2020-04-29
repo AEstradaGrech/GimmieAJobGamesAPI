@@ -1,0 +1,7 @@
+/Volumes/TOSHIBA EXT/LibraryAPI/LibraryAPI/Domain/bin/Debug/netcoreapp2.2/Domain.deps.json
+/Volumes/TOSHIBA EXT/LibraryAPI/LibraryAPI/Domain/bin/Debug/netcoreapp2.2/Domain.dll
+/Volumes/TOSHIBA EXT/LibraryAPI/LibraryAPI/Domain/bin/Debug/netcoreapp2.2/Domain.pdb
+/Volumes/TOSHIBA EXT/LibraryAPI/LibraryAPI/Domain/obj/Debug/netcoreapp2.2/Domain.AssemblyInfoInputs.cache
+/Volumes/TOSHIBA EXT/LibraryAPI/LibraryAPI/Domain/obj/Debug/netcoreapp2.2/Domain.AssemblyInfo.cs
+/Volumes/TOSHIBA EXT/LibraryAPI/LibraryAPI/Domain/obj/Debug/netcoreapp2.2/Domain.dll
+/Volumes/TOSHIBA EXT/LibraryAPI/LibraryAPI/Domain/obj/Debug/netcoreapp2.2/Domain.pdb
