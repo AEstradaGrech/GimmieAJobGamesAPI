@@ -1,4 +1,5 @@
 ﻿using System;
+using Domain.Dtos;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -29,13 +30,16 @@ namespace Infrastructure.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("Server=127.0.0.1;Port=3306;Database=GAJGamesDb;uid=root;password=somepassword");
+                var connection = Helpers.StaticStrings.ConnectionString;
+
+                optionsBuilder.UseMySql(connection);
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Query<CatalogueGame>();
+
             modelBuilder.Entity<AccountType>(entity =>
             {
                 entity.Property(e => e.AccountDesc)

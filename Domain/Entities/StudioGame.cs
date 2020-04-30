@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GimmieAJobGamesAPI.Context
+namespace Domain.Entities
 {
-    public partial class StudioGame
+    public class StudioGame
     {
         public int Id { get; set; }
         public int GameId { get; set; }

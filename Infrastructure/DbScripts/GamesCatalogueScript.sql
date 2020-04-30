@@ -9,3 +9,10 @@ DELIMITER $$
 CREATE PROCEDURE GetGamesByPEGI(IN PEGI INT)
 	SELECT g.Title, g.Genre, g.PEGI, g.Price FROM Games AS g
 	WHERE g.PEGI = PEGI; $$
+
+DELIMITER $$
+CREATE PROCEDURE GetGamesByPromoDesc(IN PrDesc CHAR(50))
+	SELECT g.Title, g.Genre, g.PEGI, g.Price FROM Games AS g
+	INNER JOIN GamePromotion AS promoRelTb ON promoRelTb.GameId = g.Id
+	INNER JOIN Promotions AS p ON promoRelTb.PromotionId = p.Id
+	WHERE p.PromoDesc LIKE PrDesc; $$

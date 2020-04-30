@@ -1,9 +1,9 @@
 ﻿using System;
 namespace Infrastructure.DAO
 {
-    public class GamesCatalogueDAO
+    public class CustomerDAO
     {
-        public GamesCatalogueDAO()
+        public CustomerDAO()
         {
         }
     }

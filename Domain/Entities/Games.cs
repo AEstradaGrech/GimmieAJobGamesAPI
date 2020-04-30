@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GimmieAJobGamesAPI.Context
+namespace Domain.Entities
 {
-    public partial class Games
+    public class Games
     {
         public Games()
         {
