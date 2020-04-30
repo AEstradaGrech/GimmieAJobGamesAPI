@@ -1,8 +1,9 @@
 ﻿using System;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace GimmieAJobGamesAPI.Context
+namespace Infrastructure.Context
 {
     public partial class GAJGamesDbContext : DbContext
     {

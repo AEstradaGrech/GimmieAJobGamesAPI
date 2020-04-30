@@ -1,15 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<root>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-</root>
+﻿DELIMITER $$
+CREATE PROCEDURE GetStudioGames(IN StudioName CHAR(20))                            
+            SELECT g.Title, g.Genre, g.PEGI, g.Price FROM Games AS g
+			INNER JOIN StudioGame AS relTb ON relTb.GameId = g.Id
+			INNER JOIN Studios AS s ON relTb.StudioId = s.Id
+			WHERE s.StudioName LIKE StudioName; $$
+
+DELIMITER $$
+CREATE PROCEDURE GetGamesByPEGI(IN PEGI INT)
+	SELECT g.Title, g.Genre, g.PEGI, g.Price FROM Games AS g
+	WHERE g.PEGI = PEGI; $$
