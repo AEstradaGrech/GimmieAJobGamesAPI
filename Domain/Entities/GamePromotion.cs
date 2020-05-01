@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Domain.Entities
 {
-    public class GamePromotion
+    public partial class GamePromotion
     {
         public int Id { get; set; }
         public int? GameId { get; set; }

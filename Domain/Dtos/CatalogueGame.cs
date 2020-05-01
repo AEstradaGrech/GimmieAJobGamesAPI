@@ -6,6 +6,7 @@ namespace Domain.Dtos
         public string Title { get; set; }        
         public string Genre { get; set; }
         public decimal Price { get; set; }
+        public string Promotion { get; set; }
         public int PEGI { get; set; }
            
     }

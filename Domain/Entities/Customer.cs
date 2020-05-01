@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Domain.Entities
 {
-    public class Customer
+    public partial class Customer
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

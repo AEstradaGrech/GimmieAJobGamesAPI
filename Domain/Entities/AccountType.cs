@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Domain.Entities
 {
-    public class AccountType
+    public partial class AccountType
     {
         public AccountType()
         {
@@ -13,7 +13,7 @@ namespace Domain.Entities
 
         public int Id { get; set; }
         public string AccountDesc { get; set; }
-        public bool? HasGift { get; set; }
+        public bool HasGift { get; set; }
 
         public virtual ICollection<CustomerAccountType> CustomerAccountType { get; set; }
         public virtual ICollection<GamePromotion> GamePromotion { get; set; }

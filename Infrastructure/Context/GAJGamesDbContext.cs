@@ -23,6 +23,7 @@ namespace Infrastructure.Context
         public virtual DbSet<GamePromotion> GamePromotion { get; set; }
         public virtual DbSet<Games> Games { get; set; }
         public virtual DbSet<Promotions> Promotions { get; set; }
+        public virtual DbSet<Queries> Queries { get; set; }
         public virtual DbSet<StudioGame> StudioGame { get; set; }
         public virtual DbSet<Studios> Studios { get; set; }
 
@@ -39,17 +40,13 @@ namespace Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Query<CatalogueGame>();
-
             modelBuilder.Entity<AccountType>(entity =>
             {
                 entity.Property(e => e.AccountDesc)
                     .IsRequired()
                     .HasColumnType("varchar(10)");
 
-                entity.Property(e => e.HasGift)
-                    .IsRequired()
-                    .HasColumnType("bit(1)")
-                    .HasDefaultValueSql("'b\\'0\\''");
+                entity.Property(e => e.HasGift).HasColumnType("bit(1)");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -149,10 +146,7 @@ namespace Infrastructure.Context
                     .IsRequired()
                     .HasColumnType("varchar(30)");
 
-                entity.Property(e => e.IsOnline)
-                    .IsRequired()
-                    .HasColumnType("bit(1)")
-                    .HasDefaultValueSql("'b\\'0\\''");
+                entity.Property(e => e.IsOnline).HasColumnType("bit(1)");
 
                 entity.Property(e => e.Pegi)
                     .HasColumnName("PEGI")
@@ -175,12 +169,24 @@ namespace Infrastructure.Context
 
             modelBuilder.Entity<Promotions>(entity =>
             {
-                entity.Property(e => e.IsValid)
-                    .IsRequired()
-                    .HasColumnType("bit(1)")
-                    .HasDefaultValueSql("'b\\'0\\''");
+                entity.Property(e => e.IsValid).HasColumnType("bit(1)");
 
                 entity.Property(e => e.PromoDesc).HasColumnType("varchar(50)");
+            });
+
+            modelBuilder.Entity<Queries>(entity =>
+            {
+                entity.HasIndex(e => e.QueryName)
+                    .HasName("QueryName_IX")
+                    .IsUnique();
+
+                entity.Property(e => e.Query)
+                    .IsRequired()
+                    .HasColumnType("text");
+
+                entity.Property(e => e.QueryName)
+                    .IsRequired()
+                    .HasColumnType("varchar(30)");
             });
 
             modelBuilder.Entity<StudioGame>(entity =>

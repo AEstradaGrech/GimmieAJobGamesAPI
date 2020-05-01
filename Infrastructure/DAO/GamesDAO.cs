@@ -18,26 +18,44 @@ namespace Infrastructure.DAO
         public GamesDAO(GAJGamesDbContext context)
         {
             _context = context;
-        }        
+        }
+
+        public async Task<IEnumerable<CatalogueGame>> GetGamesByPEGI(int PEGI)
+        {
+            return await QueryGames("GetGamesByPEGI", "{PEGI}", PEGI.ToString());
+        }
+
+        public async Task<IEnumerable<CatalogueGame>> GetGamesByPromoDesc(string promoDesc)
+        {
+            return await QueryGames("GetGamesByPromoDesc", "{promoDesc}", promoDesc);
+        }
+
+        public async Task<IEnumerable<CatalogueGame>> GetGamesByStudioPromotion(string studioName)
+        {
+            return await QueryGames("GetPromotedGamesByStudioName", "{studioName}", studioName);
+        }
 
         public async Task<IEnumerable<CatalogueGame>> GetStudioGames(string studioName)
+        {
+            return await QueryGames("GetStudioGamesByName", "{studioName}", studioName);            
+        }
+
+        private async Task<IEnumerable<CatalogueGame>> QueryGames(string queryName, string queryParam, string paramToReplace)
         {
             try
             {
 
-                var query = $@"USE GAJGamesDb;
-                               SELECT g.Title, g.Genre, g.PEGI, g.Price FROM Games AS g
-			                   INNER JOIN StudioGame AS relTb ON relTb.GameId = g.Id
-			                   INNER JOIN Studios AS s ON relTb.StudioId = s.Id
-			                   WHERE s.StudioName LIKE '{studioName}%';";
+                var query = await _context.Queries.SingleOrDefaultAsync(q => q.QueryName == queryName);
+
+                var queryText = query.Query.Replace($"{queryParam}", $"'{paramToReplace}");
 
                 var result = _context.Query<CatalogueGame>()
-                                     .FromSql(query)
+                                     .FromSql(queryText)
                                      .AsEnumerable();
 
                 return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.Write($"{ex.Message}");
 
@@ -45,7 +63,7 @@ namespace Infrastructure.DAO
                     Console.Write($"{ex.InnerException.Message}");
             }
 
-            return null;            
+            return null;
         }
     }
 }

@@ -15,6 +15,27 @@ namespace GimmieAJobGamesAPI.Services
             _DAOFactory = daoFactory;
         }
 
+        public async Task<IEnumerable<CatalogueGame>> GetGamesByPEGI(int PEGI)
+        {
+            var gamesDao = await _DAOFactory.GetGamesDAO();
+
+            return await gamesDao.GetGamesByPEGI(PEGI);
+        }
+
+        public async Task<IEnumerable<CatalogueGame>> GetGamesByPromoDesc(string promoDesc)
+        {
+            var gamesDao = await _DAOFactory.GetGamesDAO();
+
+            return await gamesDao.GetGamesByPromoDesc(promoDesc);
+        }
+
+        public async Task<IEnumerable<CatalogueGame>> GetPromotedGamesByStudioName(string studioName)
+        {
+            var gamesDao = await _DAOFactory.GetGamesDAO();
+
+            return await gamesDao.GetGamesByStudioPromotion(studioName);
+        }
+
         public async Task<IEnumerable<CatalogueGame>> GetStudioGames(string studioName)
         {
             var gamesDao = await _DAOFactory.GetGamesDAO();

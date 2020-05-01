@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Domain.Entities
 {
-    public class Promotions
+    public partial class Promotions
     {
         public Promotions()
         {
@@ -13,7 +13,7 @@ namespace Domain.Entities
         public int Id { get; set; }
         public string PromoDesc { get; set; }
         public int Discount { get; set; }
-        public bool? IsValid { get; set; }
+        public bool IsValid { get; set; }
 
         public virtual ICollection<GamePromotion> GamePromotion { get; set; }
     }

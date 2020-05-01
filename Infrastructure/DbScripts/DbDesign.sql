@@ -1,7 +1,7 @@
--- GRANT ALL ON *.* TO 'root'@'localhost';
--- CREATE USER 'user'@'localhost' IDENTIFIED BY 'somepassword';
--- GRANT ALL ON *.* TO 'user'@'localhost';
--- FLUSH PRIVILEGES;
+GRANT ALL ON *.* TO 'root'@'localhost';
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'somepassword';
+GRANT ALL ON *.* TO 'user'@'localhost';
+FLUSH PRIVILEGES;
 
 CREATE DATABASE IF NOT EXISTS GAJGamesDb;
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS Games (
     Genre varchar(30) NOT NULL,
     Platform INT NOT NULL DEFAULT 0,
     Players INT NOT NULL DEFAULT 1,
-    IsOnline BIT(1) NOT NULL DEFAULT 0,
+    IsOnline BIT(1) NOT NULL,
     PEGI INT NOT NULL DEFAULT 3,
     ReleaseDate DATE NULL,
     Price DECIMAL NULL DEFAULT 0.0,    
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS StudioGame(
 CREATE TABLE IF NOT EXISTS AccountType(
     Id INT NOT NULL AUTO_INCREMENT,
     AccountDesc varchar(10) NOT NULL,
-    HasGift BIT(1) NOT NULL DEFAULT 0,
+    HasGift BIT(1) NOT NULL,
     CONSTRAINT PK_Account PRIMARY KEY (Id)    
 );
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS Promotions (
     Id INT NOT NULL AUTO_INCREMENT,
     PromoDesc nvarchar(50) NULL,
     Discount INT NOT NULL,
-    IsValid BIT(1) NOT NULL DEFAULT 0,
+    IsValid BIT(1) NOT NULL,
     CONSTRAINT PK_Promotion PRIMARY KEY (Id)
 );
 
@@ -104,12 +104,18 @@ CREATE TABLE IF NOT EXISTS GamePromotion (
     FOREIGN KEY (AccountTypeId) REFERENCES AccountType(Id) ON DELETE CASCADE
 );
 
-
+CREATE TABLE IF NOT EXISTS Queries(
+    Id INT NOT NULL AUTO_INCREMENT,
+    QueryName varchar(30) NOT NULL,
+    Query TEXT NOT NULL,
+    CONSTRAINT PK_Queries PRIMARY KEY (Id)
+);
 
 CREATE UNIQUE INDEX CustomerId_AccountId_IX ON CustomerAccountType(CustomerId, AccountTypeId);
 CREATE UNIQUE INDEX GameId_StudioId_IX ON StudioGame(GameId, StudioId);
 CREATE UNIQUE INDEX GameId_PromotionId_IX ON GamePromotion(GameId, PromotionId);
 CREATE UNIQUE INDEX PromotionId_StudioId_IX ON GamePromotion(PromotionId, StudioId);
 CREATE UNIQUE INDEX PromotionId_AccountTypeId_IX ON GamePromotion(PromotionId, AccountTypeId);
+CREATE UNIQUE INDEX QueryName_IX ON Queries(QueryName);
 
 
