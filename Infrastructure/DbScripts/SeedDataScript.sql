@@ -133,20 +133,18 @@ SET FOREIGN_KEY_CHECKS=1;
 
 INSERT INTO Queries(QueryName, Query)
 VALUES
-('GetStudioGamesByName', 'SELECT g.Title, g.Genre, g.PEGI, g.Price, p.PromoDesc AS Promotion FROM Games AS g INNER JOIN StudioGame AS relTb ON relTb.GameId = g.Id INNER JOIN Studios AS s ON relTb.StudioId = s.Id INNER JOIN GamePromotion AS promoJoin ON (promoJoin.GameId = g.Id OR promoJoin.GameId IS NULL) INNER JOIN Promotions AS p ON promoJoin.PromotionId = p.Id WHERE s.StudioName LIKE {studioName}%\';'),
-('GetGamesByPEGI', 'SELECT g.Title, g.Genre, g.PEGI, g.Price FROM Games AS g WHERE g.PEGI = {PEGI};'),
+('GetStudioGamesByName', 'SELECT g.Title, g.Genre, g.PEGI, g.Price, p.PromoDesc FROM Games AS g INNER JOIN StudioGame AS relTb ON relTb.GameId = g.Id  INNER JOIN Studios AS s ON relTb.StudioId = s.Id LEFT OUTER JOIN GamePromotion AS promoJoin ON promoJoin.GameId = g.Id LEFT JOIN Promotions AS p ON promoJoin.PromotionId = p.Id WHERE s.StudioName LIKE {studioName}%\';'),
+('GetGamesByPEGI', 'SELECT g.Title, g.Genre, g.PEGI, g.Price, p.PromoDesc FROM Games AS g LEFT OUTER JOIN GamePromotion AS promoJoin ON promoJoin.Id = g.Id LEFT JOIN Promotions AS p ON promoJoin.PromotionId = p.Id WHERE g.PEGI = {PEGI};'),
 ('GetGamesByPromoDesc', 'SELECT g.Title, g.Genre, g.PEGI, g.Price, p.PromoDesc AS Promotion FROM Games AS g INNER JOIN GamePromotion AS promoRelTb ON promoRelTb.GameId = g.Id INNER JOIN Promotions AS p ON promoRelTb.PromotionId = p.Id WHERE p.PromoDesc LIKE {promoDesc}%\';'),
 ('GetPromotedGamesByStudioName','SELECT g.Title, g.Genre, g.PEGI, g.Price, p.PromoDesc AS Promotion FROM Studios AS s INNER JOIN GamePromotion AS joinTb ON joinTb.StudioId = s.Id INNER JOIN Promotions AS p ON joinTb.PromotionId = p.Id INNER JOIN StudioGame AS sg ON sg.StudioId = joinTb.StudioId INNER JOIN Games AS g ON sg.GameId = g.Id WHERE s.StudioName = {studioName};');
 
 
-SELECT g.Title, g.Genre, g.PEGI, g.Price, HasPromo =
-CASE WHEN EXISTS
-(
-    SELECT 1 FROM Promotions AS p
-    INNER JOIN GamePromotion AS promoJoin ON promoJoin.GameId = g.Id
-    INNER JOIN Promotions AS pr ON pr.Id = promoJoin.PromotionId
-) THEN 1 ELSE 0 END
+SELECT g.Title, g.Genre, g.PEGI, g.Price, p.PromoDesc 
 FROM Games AS g 
 INNER JOIN StudioGame AS relTb ON relTb.GameId = g.Id 
-INNER JOIN Studios AS s ON relTb.StudioId = s.Id 
-WHERE s.StudioName LIKE 'Bethesda';
+INNER JOIN Studios AS s ON relTb.StudioId = s.Id
+LEFT OUTER JOIN GamePromotion AS promoJoin ON promoJoin.GameId = g.Id 
+LEFT JOIN Promotions AS p ON promoJoin.PromotionId = p.Id 
+WHERE s.StudioName LIKE {studioName};
+
+
