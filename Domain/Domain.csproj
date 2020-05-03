@@ -8,6 +8,10 @@
     <Folder Include="Dtos\" />
     <Folder Include="Filters\" />
     <Folder Include="Contracts\" />
+    <Folder Include="EntitiesCF\" />
+    <Folder Include="Contracts\Repositories\" />
+    <Folder Include="Contracts\Mappers\" />
+    <Folder Include="Contracts\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Entities\AccountType.cs" />
@@ -19,5 +23,7 @@
     <Compile Remove="Entities\Queries.cs" />
     <Compile Remove="Entities\StudioGame.cs" />
     <Compile Remove="Entities\Studios.cs" />
+    <Compile Remove="Contracts\IDAOFactory.cs" />
+    <Compile Remove="Contracts\IGamesDAO.cs" />
   </ItemGroup>
 </Project>

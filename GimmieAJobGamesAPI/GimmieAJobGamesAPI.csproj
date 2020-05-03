@@ -31,5 +31,10 @@
     <Folder Include="Services\" />
     <Folder Include="Extensions\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Services\MapperServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Services\ISqlQueryService.cs" />
+    <Compile Remove="Services\SqlQueryService.cs" />
   </ItemGroup>
 </Project>
