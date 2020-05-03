@@ -5,9 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Dtos\" />
     <Folder Include="Filters\" />
     <Folder Include="Contracts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Entities\AccountType.cs" />
+    <Compile Remove="Entities\Customer.cs" />
+    <Compile Remove="Entities\CustomerAccountType.cs" />
+    <Compile Remove="Entities\GamePromotion.cs" />
+    <Compile Remove="Entities\Games.cs" />
+    <Compile Remove="Entities\Promotions.cs" />
+    <Compile Remove="Entities\Queries.cs" />
+    <Compile Remove="Entities\StudioGame.cs" />
+    <Compile Remove="Entities\Studios.cs" />
   </ItemGroup>
 </Project>
