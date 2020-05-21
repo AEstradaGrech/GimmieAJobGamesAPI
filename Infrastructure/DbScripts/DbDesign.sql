@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS Games (
     IsOnline BIT(1) NOT NULL,
     PEGI INT NOT NULL DEFAULT 3,
     ReleaseDate DATE NULL,
-    Price DECIMAL NULL DEFAULT 0.0,    
+    Price DECIMAL(16,2) NULL DEFAULT 0.0,    
     AvailableZone INT NULL,
     CONSTRAINT PK_Game PRIMARY KEY (Id)
 );
