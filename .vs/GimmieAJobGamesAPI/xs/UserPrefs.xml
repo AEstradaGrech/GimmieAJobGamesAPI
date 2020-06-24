@@ -1,53 +1,43 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/Contracts/Mappers/IMapperService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/EntityTypeConfigurations/PromotionEntityTypeConfiguration.cs">
     <Files>
-      <File FileName="GimmieAJobGamesAPI/appsettings.json" Line="1" Column="1" />
-      <File FileName="Infrastructure/DAO/GamesDAO.cs" Line="70" Column="1" />
-      <File FileName="Domain/Contracts/IGamesDAO.cs" Line="8" Column="22" />
-      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" Line="44" Column="76" />
-      <File FileName="GimmieAJobGamesAPI/Services/SqlQueryService.cs" Line="36" Column="72" />
-      <File FileName="GimmieAJobGamesAPI/Services/ISqlQueryService.cs" Line="13" Column="78" />
-      <File FileName="Domain/Dtos/CatalogueGame.cs" Line="14" Column="1" />
-      <File FileName="Domain/EntitiesCF/Entity.cs" Line="6" Column="15" />
-      <File FileName="Domain/EntitiesCF/Game.cs" Line="13" Column="34" />
+      <File FileName="Infrastructure/Context/GAJGamesDbContext.cs" Line="9" Column="19" />
+      <File FileName="GimmieAJobGamesAPI/Startup.cs" />
+      <File FileName="Domain/Entities/AccountType.cs" />
+      <File FileName="Domain/Entities/Queries.cs" />
+      <File FileName="Domain/Entities/StudioGame.cs" />
+      <File FileName="Domain/Entities/Customer.cs" />
+      <File FileName="Domain/Entities/Games.cs" />
+      <File FileName="Domain/Entities/Promotions.cs" Line="7" Column="6" />
+      <File FileName="Domain/Entities/GamePromotion.cs" />
+      <File FileName="Domain/Entities/Studios.cs" />
+      <File FileName="Domain/EntitiesCF/AccountType.cs" Line="1" Column="1" />
+      <File FileName="Domain/EntitiesCF/AccountTypes.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GameEntityConfiguration.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/StudioEntityConfiguration.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="1" Column="1" />
+      <File FileName="Domain/EntitiesCF/Promotion.cs" Line="1" Column="1" />
+      <File FileName="Domain/EntitiesCF/GamePromotion.cs" Line="1" Column="1" />
+      <File FileName="Domain/EntitiesCF/Game.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Context/GAJDbContext.cs" Line="1" Column="1" />
+      <File FileName="Domain/EntitiesCF/Entity.cs" Line="1" Column="1" />
       <File FileName="Domain/EntitiesCF/Studio.cs" Line="10" Column="52" />
-      <File FileName="Domain/EntitiesCF/Promotion.cs" Line="7" Column="23" />
-      <File FileName="Infrastructure/EntityTypeConfigurations/GameEntityConfiguration.cs" Line="19" Column="50" />
-      <File FileName="Infrastructure/EntityTypeConfigurations/StudioEntityConfiguration.cs" Line="19" Column="49" />
-      <File FileName="Infrastructure/Context/GAJDbContext.cs" Line="25" Column="50" />
-      <File FileName="Domain/Contracts/IUnitOfWork.cs" Line="10" Column="25" />
-      <File FileName="Domain/EntitiesCF/GamePromotion.cs" Line="11" Column="46" />
-      <File FileName="Domain/EntitiesCF/AccountType.cs" Line="8" Column="1" />
-      <File FileName="Domain/EntitiesCF/AccountTypes.cs" Line="10" Column="20" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GamePromotionEntityTypeConfiguration.cs" Line="1" Column="1" />
       <File FileName="Domain/EntitiesCF/Customer.cs" Line="13" Column="1" />
-      <File FileName="Domain/Contracts/Repositories/IRepository.cs" Line="11" Column="18" />
-      <File FileName="Infrastructure/Repositories/Repository.cs" Line="43" Column="86" />
-      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="30" Column="102" />
-      <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" Line="11" Column="78" />
-      <File FileName="GimmieAJobGamesAPI/Services/GamesService.cs" Line="1" Column="1" />
-      <File FileName="Domain/Contracts/Services/IGamesMgmtService.cs" Line="1" Column="1" />
-      <File FileName="Domain/Contracts/Mappers/IMapperService.cs" Line="4" Column="38" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/PromotionEntityTypeConfiguration.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GimmieAJobGamesAPI" expanded="True">
             <Node name="Domain" expanded="True">
-              <Node name="Contracts" expanded="True">
-                <Node name="Mappers" expanded="True">
-                  <Node name="IMapperService.cs" selected="True" />
-                </Node>
-                <Node name="Repositories" expanded="True" />
-                <Node name="Services" expanded="True" />
-              </Node>
-              <Node name="Dtos" expanded="True" />
+              <Node name="Contracts" expanded="True" />
               <Node name="EntitiesCF" expanded="True" />
               <Node name="Filters" expanded="True" />
             </Node>
             <Node name="GimmieAJobGamesAPI" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Extensions" expanded="True" />
-              <Node name="Services" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="Infrastructure" expanded="True">

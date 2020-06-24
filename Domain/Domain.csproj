@@ -25,5 +25,7 @@
     <Compile Remove="Entities\Studios.cs" />
     <Compile Remove="Contracts\IDAOFactory.cs" />
     <Compile Remove="Contracts\IGamesDAO.cs" />
+    <Compile Remove="EntitiesCF\AccountType.cs" />
+    <Compile Remove="EntitiesCF\Customer.cs" />
   </ItemGroup>
 </Project>
