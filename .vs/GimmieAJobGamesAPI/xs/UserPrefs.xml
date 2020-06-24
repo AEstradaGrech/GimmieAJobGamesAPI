@@ -1,14 +1,5 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GimmieAJobGamesAPI/Services/GamesMgmtService.cs">
-    <Files>
-      <File FileName="Domain/EntitiesCF/AccountTypes.cs" Line="10" Column="20" />
-      <File FileName="Domain/EntitiesCF/Customer.cs" Line="13" Column="1" />
-      <File FileName="Domain/Contracts/Repositories/IRepository.cs" Line="11" Column="18" />
-      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="30" Column="102" />
-      <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" Line="11" Column="78" />
-      <File FileName="GimmieAJobGamesAPI/Services/GamesService.cs" Line="28" Column="83" />
-      <File FileName="Domain/Contracts/Mappers/IMapperService.cs" Line="10" Column="45" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
