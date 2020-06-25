@@ -12,6 +12,7 @@
     <Folder Include="Contracts\Repositories\" />
     <Folder Include="Contracts\Mappers\" />
     <Folder Include="Contracts\Services\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Entities\AccountType.cs" />

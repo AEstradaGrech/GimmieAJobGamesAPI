@@ -1,0 +1,13 @@
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/bin/Debug/netcoreapp2.2/Infrastructure.deps.json
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/bin/Debug/netcoreapp2.2/Infrastructure.runtimeconfig.json
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/bin/Debug/netcoreapp2.2/Infrastructure.runtimeconfig.dev.json
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/bin/Debug/netcoreapp2.2/Infrastructure.dll
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/bin/Debug/netcoreapp2.2/Infrastructure.pdb
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/bin/Debug/netcoreapp2.2/Domain.dll
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/bin/Debug/netcoreapp2.2/Domain.pdb
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/obj/Debug/netcoreapp2.2/Infrastructure.csprojAssemblyReference.cache
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/obj/Debug/netcoreapp2.2/Infrastructure.AssemblyInfoInputs.cache
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/obj/Debug/netcoreapp2.2/Infrastructure.AssemblyInfo.cs
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/obj/Debug/netcoreapp2.2/Infrastructure.csproj.CopyComplete
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/obj/Debug/netcoreapp2.2/Infrastructure.dll
+/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/obj/Debug/netcoreapp2.2/Infrastructure.pdb
