@@ -18,6 +18,8 @@ namespace Infrastructure.Context
         {
             builder.ApplyConfiguration(new GameEntityConfiguration());
             builder.ApplyConfiguration(new StudioEntityConfiguration());
+            builder.ApplyConfiguration(new GamePromotionEntityTypeConfiguration());
+            builder.ApplyConfiguration(new PromotionEntityTypeConfiguration());
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
@@ -25,8 +27,10 @@ namespace Infrastructure.Context
             return await SaveChangesAsync() >= 1;
         }
 
-        DbSet<Game> Games { get; set; }
-        DbSet<Studio> Studios { get; set; }
-        DbSet<Promotion> Promotions { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Studio> Studios { get; set; }
+        public DbSet<Promotion> Promotions { get; set; }
+        public DbSet<GamePromotion> GamePromotions { get; set; }
+        public DbSet<GameStudio> GameStudio { get; set; }
     }
 }

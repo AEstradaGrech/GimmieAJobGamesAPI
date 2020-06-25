@@ -25,7 +25,7 @@ namespace GimmieAJobGamesAPI.Services
 
         public async Task<IEnumerable<CatalogueGame>> GetByStudioPromotion(string studioName)
         {
-            var entities = await _gamesRepo.GetGamesByStudioPromotion(studioName);
+            //var entities = await _gamesRepo.GetGamesByStudioPromotion(studioName);
 
             return null;
         }

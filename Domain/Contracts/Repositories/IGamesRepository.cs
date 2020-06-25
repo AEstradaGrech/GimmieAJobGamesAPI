@@ -7,7 +7,7 @@ namespace Domain.Contracts.Repositories
 {
     public interface IGamesRepository : IRepository<Game>
     {
-        Task<IEnumerable<Game>> GetGamesByStudioPromotion(string studioName);
+        Task<IEnumerable<Game>> GetGamesByStudioPromotion(Guid studioId);
         Task<IEnumerable<Game>> GetPromtedGamesByPromoDesc(string promoDesc);
     }
 }

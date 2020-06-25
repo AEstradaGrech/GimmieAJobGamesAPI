@@ -15,11 +15,11 @@ namespace Infrastructure.Repositories
         {
         }
 
-        public async Task<IEnumerable<Game>> GetGamesByStudioPromotion(string studioName)
+        public async Task<IEnumerable<Game>> GetGamesByStudioPromotion(Guid studioId)
         {
             return DbSet.Include(g => g.GamePromotions)
                         .ThenInclude(p => p.Promotion)
-                        .Where(g => g.GamePromotions.Any(p => p.Studio.StudioName == studioName));
+                        .Where(g => g.GamePromotions.Any(p => p.StudioId == studioId));
                                          
         }
 

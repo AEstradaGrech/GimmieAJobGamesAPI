@@ -4,9 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain.Contracts;
 using GimmieAJobGamesAPI.Extensions;
-
 using Infrastructure.Context;
-using Infrastructure.DAO;
 using Infrastructure.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -45,7 +43,7 @@ namespace GimmieAJobGamesAPI
 
             StaticStrings.ConnectionString = Configuration["DbConnection"];
 
-            services.AddDbContext<GAJGamesDbContext>(options => options.UseMySql(StaticStrings.ConnectionString));
+            services.AddDbContext<GAJDbContext>(options => options.UseMySql(StaticStrings.ConnectionString));
 
             services.RegisterServices();
 
