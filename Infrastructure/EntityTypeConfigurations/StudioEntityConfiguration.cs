@@ -14,7 +14,10 @@ namespace Infrastructure.EntityTypeConfigurations
             builder.Property(s => s.StudioName)
                    .HasColumnName("Name")
                    .HasMaxLength(30)
-                   .IsRequired();           
+                   .IsRequired();
+
+            builder.HasIndex(s => s.StudioName)
+                   .IsUnique();
            
         }
     }

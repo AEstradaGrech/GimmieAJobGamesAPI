@@ -72,14 +72,11 @@ namespace GimmieAJobGamesAPI
                 app.UseHsts();
             }
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "GAJ Games API");
-            });
-
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            app.HandleMigrationsAndSeedData()
+               .UseHttpsRedirection()
+               .UseMvc()
+               .UseSwagger()
+               .UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "GAJ Games API");});            
         }
     }
 }

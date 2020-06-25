@@ -1,10 +1,12 @@
 ﻿using System;
 namespace Domain.Enums
 {
-    public class AvailableZone
+    public enum CountryZone
     {
-        public AvailableZone()
-        {
-        }
+        Europe = 0,
+        NorthAmerica = 1,
+        SouthAmerca = 2,
+        Asia = 3,
+        Oceania = 4
     }
 }
