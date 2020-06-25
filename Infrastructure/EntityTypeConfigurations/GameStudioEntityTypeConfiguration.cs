@@ -5,24 +5,24 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.EntityTypeConfigurations
 {
-    public class GamePromotionEntityTypeConfiguration : IEntityTypeConfiguration<GamePromotion>
-    { 
-        public void Configure(EntityTypeBuilder<GamePromotion> builder)
+    public class GameStudioEntityTypeConfiguration : IEntityTypeConfiguration<GameStudio>
+    {
+        public GameStudioEntityTypeConfiguration()
+        {
+        }
+
+        public void Configure(EntityTypeBuilder<GameStudio> builder)
         {
             builder.HasKey(e => e.Id);
 
             builder.HasOne(e => e.Game)
-                   .WithMany(g => g.GamePromotions)
+                   .WithMany(g => g.GameStudios)
                    .HasForeignKey(e => e.GameId)
                    .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(e => e.Studio)
-                   .WithMany(s => s.GamePromotions)
+                   .WithMany(s => s.StudioGames)
                    .HasForeignKey(e => e.StudioId)
-                   .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasOne(e => e.Promotion)
-                   .WithMany(p => p.GamePromotion)
                    .OnDelete(DeleteBehavior.Cascade);
         }
     }

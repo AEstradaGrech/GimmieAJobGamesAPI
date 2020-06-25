@@ -6,7 +6,7 @@ namespace Domain.Contracts
 {
     public interface IUnitOfWork
     {
-        public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
-        public Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/EntityTypeConfigurations/PromotionEntityTypeConfiguration.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Migrations/20200625113345_InitialMig.cs">
     <Files>
       <File FileName="Infrastructure/Context/GAJGamesDbContext.cs" Line="9" Column="19" />
       <File FileName="GimmieAJobGamesAPI/Startup.cs" />
@@ -8,36 +8,45 @@
       <File FileName="Domain/Entities/StudioGame.cs" />
       <File FileName="Domain/Entities/Customer.cs" />
       <File FileName="Domain/Entities/Games.cs" />
-      <File FileName="Domain/Entities/Promotions.cs" Line="7" Column="6" />
+      <File FileName="Domain/Entities/Promotions.cs" />
       <File FileName="Domain/Entities/GamePromotion.cs" />
       <File FileName="Domain/Entities/Studios.cs" />
-      <File FileName="Domain/EntitiesCF/AccountType.cs" Line="1" Column="1" />
-      <File FileName="Domain/EntitiesCF/AccountTypes.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/EntityTypeConfigurations/GameEntityConfiguration.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/EntityTypeConfigurations/StudioEntityConfiguration.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="1" Column="1" />
-      <File FileName="Domain/EntitiesCF/Promotion.cs" Line="1" Column="1" />
-      <File FileName="Domain/EntitiesCF/GamePromotion.cs" Line="1" Column="1" />
-      <File FileName="Domain/EntitiesCF/Game.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Context/GAJDbContext.cs" Line="1" Column="1" />
-      <File FileName="Domain/EntitiesCF/Entity.cs" Line="1" Column="1" />
-      <File FileName="Domain/EntitiesCF/Studio.cs" Line="10" Column="52" />
-      <File FileName="Infrastructure/EntityTypeConfigurations/GamePromotionEntityTypeConfiguration.cs" Line="1" Column="1" />
-      <File FileName="Domain/EntitiesCF/Customer.cs" Line="13" Column="1" />
-      <File FileName="Infrastructure/EntityTypeConfigurations/PromotionEntityTypeConfiguration.cs" Line="1" Column="1" />
+      <File FileName="Domain/EntitiesCF/AccountType.cs" />
+      <File FileName="Domain/EntitiesCF/AccountTypes.cs" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GameEntityConfiguration.cs" Line="17" Column="13" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/StudioEntityConfiguration.cs" Line="17" Column="34" />
+      <File FileName="Infrastructure/Repositories/GamesRepository.cs" />
+      <File FileName="Domain/EntitiesCF/Promotion.cs" />
+      <File FileName="Domain/EntitiesCF/GamePromotion.cs" Line="8" Column="41" />
+      <File FileName="Domain/EntitiesCF/Game.cs" Line="12" Column="44" />
+      <File FileName="Infrastructure/Context/GAJDbContext.cs" Line="34" Column="56" />
+      <File FileName="Domain/EntitiesCF/Entity.cs" />
+      <File FileName="Domain/EntitiesCF/Studio.cs" Line="9" Column="50" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GamePromotionEntityTypeConfiguration.cs" Line="26" Column="54" />
+      <File FileName="Domain/EntitiesCF/Customer.cs" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/PromotionEntityTypeConfiguration.cs" Line="16" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/appsettings.json" />
+      <File FileName="GimmieAJobGamesAPI/appsettings.Development.json" />
+      <File FileName="Domain/Contracts/IUnitOfWork.cs" />
+      <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" />
+      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" />
+      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" />
+      <File FileName="Domain/EntitiesCF/GameStudio.cs" Line="8" Column="41" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GameStudioEntityTypeConfiguration.cs" Line="22" Column="1" />
+      <File FileName="Infrastructure/Migrations/20200625113345_InitialMig.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GimmieAJobGamesAPI" expanded="True">
             <Node name="Domain" expanded="True">
-              <Node name="Contracts" expanded="True" />
               <Node name="EntitiesCF" expanded="True" />
-              <Node name="Filters" expanded="True" />
             </Node>
             <Node name="GimmieAJobGamesAPI" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Extensions" expanded="True" />
+              <Node name="Services" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="Infrastructure" expanded="True">
@@ -47,6 +56,9 @@
               <Node name="Context" expanded="True" />
               <Node name="EntityTypeConfigurations" expanded="True" />
               <Node name="Helpers" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="20200625113345_InitialMig.cs" selected="True" />
+              </Node>
               <Node name="Repositories" expanded="True" />
             </Node>
           </Node>
@@ -58,10 +70,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Controllers/GamesController.cs" relfile="GimmieAJobGamesAPI/Controllers/GamesController.cs" line="31" column="1" />
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Services/SqlQueryService.cs" relfile="GimmieAJobGamesAPI/Services/SqlQueryService.cs" line="34" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

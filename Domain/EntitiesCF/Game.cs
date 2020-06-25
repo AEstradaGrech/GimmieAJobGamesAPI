@@ -9,7 +9,7 @@ namespace Domain.EntitiesCF
         public string Genre { get; set; }        
         public int PEGI { get; set; }
         public decimal? Price { get; set; }
-        public List<Studio> Studios { get; set; }
-        public List<GamePromotion> GamePromotions { get; set; }
+        public ICollection<GameStudio> GameStudios { get; set; }
+        public ICollection<GamePromotion> GamePromotions { get; set; }
     }
 }

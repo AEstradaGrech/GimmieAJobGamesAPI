@@ -7,6 +7,7 @@ namespace Domain.EntitiesCF
     {
         public string StudioName { get; set; }
         public DateTime Established { get; set; }
-        public List<Game> StudioGames { get; set; }
+        public ICollection<GameStudio> StudioGames { get; set; }
+        public ICollection<GamePromotion> GamePromotions { get; set; }
     }
 }

@@ -14,9 +14,7 @@ namespace Infrastructure.EntityTypeConfigurations
             builder.Property(g => g.Title)
                    .HasMaxLength(30)
                    .IsRequired();
-
-            builder.HasMany(g => g.Studios);
-            builder.HasMany(g => g.GamePromotions);
+                        
         }
     }
 }
