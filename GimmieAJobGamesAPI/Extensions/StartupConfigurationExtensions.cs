@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Domain.Contracts;
 using GimmieAJobGamesAPI.Services;
 using Infrastructure.Context;
-using Infrastructure.DAO;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.MySqlClient;
 
@@ -13,40 +14,12 @@ namespace GimmieAJobGamesAPI.Extensions
 {
     public static class StartupConfigurationExtensions
     {
-        public static IApplicationBuilder SetDatabase(this IApplicationBuilder app, string connectionString)
-        {
-            using(var connection = new MySqlConnection(connectionString))
-            {                               
-                try
-                {
-                    var query = File.ReadAllText($"{Directory.GetParent(Directory.GetCurrentDirectory())}/Infrastructure/DbScripts/DbDesign.sql");
-
-                    connection.Open();
-
-                    var cmd = new MySqlCommand();
-
-                    cmd.CommandText = query;
-
-                    cmd.ExecuteNonQuery();
-                }
-                catch(MySqlException ex)
-                {
-                    Console.Write($"{ex.Message}");
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-
-            return app;
-        }
-
+       
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<IDAOFactory, MySqlDAOFactory>(f => new MySqlDAOFactory(new GAJGamesDbContext()));
+            //services.AddScoped<IDAOFactory, MySqlDAOFactory>(f => new MySqlDAOFactory(new GAJGamesDbContext()));
 
-            services.AddScoped<ISqlQueryService, SqlQueryService>();
+            //services.AddScoped<ISqlQueryService, SqlQueryService>();
             //var domainAssembly = Assembly.Load(new AssemblyName(nameof(Domain)));
             //var apiAssembly = Assembly.Load(new AssemblyName(nameof(GimmieAJobGamesAPI)));
 
@@ -56,6 +29,21 @@ namespace GimmieAJobGamesAPI.Extensions
             //                          .AsMatchingInterface());
 
             return services;
+        }
+
+        public static IApplicationBuilder HandleMigrationsAndSeedData(this IApplicationBuilder app)
+        {
+            using(var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<GAJDbContext>();
+
+                context.Database.Migrate();
+
+                if (!context.Database.GetPendingMigrations().Any())
+                    context.SeedData();
+            }
+
+            return app;
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Infrastructure.DAO
 
                 var query = await _context.Queries.SingleOrDefaultAsync(q => q.QueryName == queryName);
 
-                var queryText = query.Query.Replace($"{queryParam}", $"{paramToReplace}");
+                var queryText = query.Query.Replace($"{queryParam}", $"'{paramToReplace}");
 
                 var result = _context.Query<CatalogueGame>()
                                      .FromSql(queryText)

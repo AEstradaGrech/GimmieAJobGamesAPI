@@ -7,11 +7,17 @@
   <ItemGroup>
     <Compile Remove="Class1.cs" />
     <Compile Remove="DbScripts\GamesCatalogueScript.Designer.cs" />
+    <Compile Remove="Context\GAJGamesDbContext.cs" />
+    <Compile Remove="DAO\CustomerDAO.cs" />
+    <Compile Remove="DAO\DAOFactory.cs" />
+    <Compile Remove="DAO\GamesDAO.cs" />
+    <Compile Remove="DAO\MySqlDAOFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
-    <Folder Include="DAO\" />
     <Folder Include="Helpers\" />
+    <Folder Include="EntityTypeConfigurations\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
@@ -24,5 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="DbScripts\GamesCatalogueScript.sql" />
+    <None Remove="DbScripts\DbDesign.sql" />
+    <None Remove="DbScripts\SeedDataScript.sql" />
   </ItemGroup>
 </Project>

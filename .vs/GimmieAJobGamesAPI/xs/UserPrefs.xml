@@ -1,12 +1,53 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Migrations/20200625133217_GamePropsMig.cs">
+    <Files>
+      <File FileName="Infrastructure/Context/GAJGamesDbContext.cs" Line="9" Column="19" />
+      <File FileName="GimmieAJobGamesAPI/Startup.cs" Line="79" Column="103" />
+      <File FileName="Domain/Entities/AccountType.cs" />
+      <File FileName="Domain/Entities/Queries.cs" />
+      <File FileName="Domain/Entities/StudioGame.cs" />
+      <File FileName="Domain/Entities/Customer.cs" />
+      <File FileName="Domain/Entities/Games.cs" />
+      <File FileName="Domain/Entities/Promotions.cs" />
+      <File FileName="Domain/Entities/GamePromotion.cs" />
+      <File FileName="Domain/Entities/Studios.cs" />
+      <File FileName="Domain/EntitiesCF/AccountType.cs" />
+      <File FileName="Domain/EntitiesCF/AccountTypes.cs" Line="13" Column="1" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GameEntityConfiguration.cs" Line="21" Column="1" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/StudioEntityConfiguration.cs" Line="22" Column="1" />
+      <File FileName="Infrastructure/Repositories/GamesRepository.cs" />
+      <File FileName="Domain/EntitiesCF/Promotion.cs" />
+      <File FileName="Domain/EntitiesCF/GamePromotion.cs" Line="16" Column="1" />
+      <File FileName="Domain/EntitiesCF/Game.cs" Line="15" Column="55" />
+      <File FileName="Infrastructure/Context/GAJDbContext.cs" Line="37" Column="1" />
+      <File FileName="Domain/EntitiesCF/Entity.cs" />
+      <File FileName="Domain/EntitiesCF/Studio.cs" Line="14" Column="1" />
+      <File FileName="Domain/EntitiesCF/Customer.cs" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/PromotionEntityTypeConfiguration.cs" Line="20" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/appsettings.json" Line="1" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/appsettings.Development.json" />
+      <File FileName="Domain/Contracts/IUnitOfWork.cs" />
+      <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" Line="17" Column="8" />
+      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" />
+      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" />
+      <File FileName="Domain/EntitiesCF/GameStudio.cs" Line="12" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" Line="123" Column="44" />
+      <File FileName="Domain/Enums/PEGI.cs" Line="9" Column="16" />
+      <File FileName="Domain/Enums/AvailableZone.cs" Line="10" Column="20" />
+      <File FileName="GimmieAJobGamesAPI/Program.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Migrations/20200625123455_GamePropsAddedMig.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Migrations/20200625122210_PegiToEnumMig.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Migrations/20200625113345_InitialMig.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Migrations/20200625133217_GamePropsMig.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GimmieAJobGamesAPI" expanded="True">
             <Node name="Domain" expanded="True">
-              <Node name="Dtos" expanded="True" />
-              <Node name="Filters" expanded="True" />
+              <Node name="EntitiesCF" expanded="True" />
+              <Node name="Enums" expanded="True" />
             </Node>
             <Node name="GimmieAJobGamesAPI" expanded="True">
               <Node name="Controllers" expanded="True" />
@@ -18,10 +59,13 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="SdkDependencies" expanded="True" />
               </Node>
-              <Node name="DAO" expanded="True">
-                <Node name="GamesDAO.cs" selected="True" />
-              </Node>
+              <Node name="Context" expanded="True" />
+              <Node name="EntityTypeConfigurations" expanded="True" />
               <Node name="Helpers" expanded="True" />
+              <Node name="Migrations" expanded="True">
+                <Node name="20200625133217_GamePropsMig.cs" selected="True" />
+              </Node>
+              <Node name="Repositories" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -33,8 +77,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Controllers/GamesController.cs" relfile="GimmieAJobGamesAPI/Controllers/GamesController.cs" line="31" column="1" />
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Services/SqlQueryService.cs" relfile="GimmieAJobGamesAPI/Services/SqlQueryService.cs" line="34" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" relfile="GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" line="47" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" relfile="GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" line="20" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
