@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.2": {
       "Infrastructure/1.0.0": {
         "dependencies": {
+          "Consul": "1.6.1.1",
           "Domain": "1.0.0",
           "EntityFramework": "6.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.6",
@@ -16,6 +17,17 @@
         },
         "runtime": {
           "Infrastructure.dll": {}
+        }
+      },
+      "Consul/1.6.1.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Consul.dll": {
+            "assemblyVersion": "1.6.1.1",
+            "fileVersion": "1.6.1.1"
+          }
         }
       },
       "EntityFramework/6.0.0": {
@@ -413,7 +425,7 @@
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "assemblyVersion": "4.0.4.0",
-            "fileVersion": "4.0.0.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -450,6 +462,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Consul/1.6.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AJkBiix1bT3cSZRO6OD0Ee31Co1qgVkmVBFwpxym9WdxH5K6LfmAZ8Vb8nGvo9EKC+ir2sv5fKIrY75aENcMDA==",
+      "path": "consul/1.6.1.1",
+      "hashPath": "consul.1.6.1.1.nupkg.sha512"
     },
     "EntityFramework/6.0.0": {
       "type": "package",

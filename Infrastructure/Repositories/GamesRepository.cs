@@ -15,6 +15,29 @@ namespace Infrastructure.Repositories
         {
         }
 
+        public async Task<IEnumerable<Game>> GetAll()
+        {
+            return DbSet.AsEnumerable();
+        }
+
+        public async Task<Game> GetById(Guid gameId)
+        {
+            return await DbSet.Include(g => g.GameStudios)
+                              .ThenInclude(gs => gs.Studio)
+                              .Include(g => g.GamePromotions)                              
+                              .SingleOrDefaultAsync(g => g.Id == gameId);
+        }
+
+        public async Task<IEnumerable<Game>> GetByStudioId(Guid studioId)
+        {
+            var response = DbSet.Include(g => g.GameStudios)
+                        .ThenInclude(gs => gs.Studio)
+                        .Where(s => s.Id == studioId)
+                        .ToList();
+
+            return response;
+        }
+
         public async Task<IEnumerable<Game>> GetGamesByStudioPromotion(Guid studioId)
         {
             return DbSet.Include(g => g.GamePromotions)
@@ -23,7 +46,7 @@ namespace Infrastructure.Repositories
                                          
         }
 
-        public async Task<IEnumerable<Game>> GetPromtedGamesByPromoDesc(string promoDesc)
+        public async Task<IEnumerable<Game>> GetPromotedGamesByPromoDesc(string promoDesc)
         {
             return DbSet.Include(g => g.GamePromotions)
                         .ThenInclude(p => p.Promotion)

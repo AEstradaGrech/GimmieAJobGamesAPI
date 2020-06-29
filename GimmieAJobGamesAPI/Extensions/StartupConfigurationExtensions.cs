@@ -3,8 +3,13 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Domain.Contracts;
+using Domain.Contracts.Mappers;
+using Domain.Contracts.Repositories;
+using Domain.Contracts.Services;
 using GimmieAJobGamesAPI.Services;
+using GimmieAJobGamesAPI.Services.MapperServices;
 using Infrastructure.Context;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,10 +28,18 @@ namespace GimmieAJobGamesAPI.Extensions
             //var domainAssembly = Assembly.Load(new AssemblyName(nameof(Domain)));
             //var apiAssembly = Assembly.Load(new AssemblyName(nameof(GimmieAJobGamesAPI)));
 
-            //services.AddScoped<typeof(IRepository<*,*>, Repository<,>)
+            //services.AddScoped < typeof(IRepository<*,*>, Repository <,>)
             //        .Scan(scan => scan.FromAssemblies(apiAssembly, domainAssembly)
             //                          .AddClasses()
             //                          .AsMatchingInterface());
+
+            services.AddScoped<IGamesRepository, GamesRepository>();
+            services.AddScoped<IGamesMgmtService, GamesMgmtService>();
+            services.AddScoped<IGamesMapperService, GamesMapperService>();
+            services.AddScoped<IStudiosRepository, StudiosRepository>();
+            services.AddScoped<IGameStudioRepository, GameStudioRepository>();
+            services.AddScoped<IGamePromotionRepository, GamePromotionRepository>();
+            services.AddScoped<IPromotionsRepository, PromotionsRepository>();
 
             return services;
         }

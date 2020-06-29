@@ -7,7 +7,11 @@ namespace Domain.Contracts.Services
 {
     public interface IGamesMgmtService
     {
-        Task<IEnumerable<CatalogueGame>> GetByStudioPromotion(string studioName);
-        Task<IEnumerable<CatalogueGame>> GetByPromoDesc(string promoDesc);
+        Task<IEnumerable<CatalogueGameDto>> GetAllCatalogueGames();
+        Task<IEnumerable<CatalogueGameDto>> GetCatalogueGameByStudioPromotion(string studioName);
+        Task<IEnumerable<CatalogueGameDto>> GetCatalogueGameByStudioName(string studioName);
+        Task<IEnumerable<CatalogueGameDto>> GetCatalogueGameByPromoDesc(string promoDesc);
+        Task<GameDetailDto> GetGameDetailByGameId(Guid gameId);
+
     }
 }

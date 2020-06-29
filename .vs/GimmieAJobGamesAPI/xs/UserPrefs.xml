@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Migrations/20200625133217_GamePropsMig.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GimmieAJobGamesAPI/Services/MapperServices/GameStudiosMapperService.cs">
     <Files>
       <File FileName="Infrastructure/Context/GAJGamesDbContext.cs" Line="9" Column="19" />
-      <File FileName="GimmieAJobGamesAPI/Startup.cs" Line="79" Column="103" />
+      <File FileName="GimmieAJobGamesAPI/Startup.cs" Line="44" Column="21" />
       <File FileName="Domain/Entities/AccountType.cs" />
       <File FileName="Domain/Entities/Queries.cs" />
       <File FileName="Domain/Entities/StudioGame.cs" />
@@ -14,57 +14,84 @@
       <File FileName="Domain/EntitiesCF/AccountType.cs" />
       <File FileName="Domain/EntitiesCF/AccountTypes.cs" Line="13" Column="1" />
       <File FileName="Infrastructure/EntityTypeConfigurations/GameEntityConfiguration.cs" Line="21" Column="1" />
-      <File FileName="Infrastructure/EntityTypeConfigurations/StudioEntityConfiguration.cs" Line="22" Column="1" />
-      <File FileName="Infrastructure/Repositories/GamesRepository.cs" />
-      <File FileName="Domain/EntitiesCF/Promotion.cs" />
-      <File FileName="Domain/EntitiesCF/GamePromotion.cs" Line="16" Column="1" />
-      <File FileName="Domain/EntitiesCF/Game.cs" Line="15" Column="55" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/StudioEntityConfiguration.cs" Line="25" Column="1" />
+      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="38" Column="1" />
+      <File FileName="Domain/EntitiesCF/Promotion.cs" Line="9" Column="43" />
+      <File FileName="Domain/EntitiesCF/GamePromotion.cs" Line="13" Column="46" />
+      <File FileName="Domain/EntitiesCF/Game.cs" Line="12" Column="56" />
       <File FileName="Infrastructure/Context/GAJDbContext.cs" Line="37" Column="1" />
       <File FileName="Domain/EntitiesCF/Entity.cs" />
-      <File FileName="Domain/EntitiesCF/Studio.cs" Line="14" Column="1" />
+      <File FileName="Domain/EntitiesCF/Studio.cs" Line="15" Column="50" />
       <File FileName="Domain/EntitiesCF/Customer.cs" />
       <File FileName="Infrastructure/EntityTypeConfigurations/PromotionEntityTypeConfiguration.cs" Line="20" Column="1" />
-      <File FileName="GimmieAJobGamesAPI/appsettings.json" Line="1" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/appsettings.json" Line="17" Column="1" />
       <File FileName="GimmieAJobGamesAPI/appsettings.Development.json" />
       <File FileName="Domain/Contracts/IUnitOfWork.cs" />
-      <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" />
-      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" Line="17" Column="8" />
-      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" />
-      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" />
+      <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" Line="8" Column="22" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" Line="42" Column="79" />
+      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" Line="46" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" Line="61" Column="1" />
       <File FileName="Domain/EntitiesCF/GameStudio.cs" Line="12" Column="1" />
-      <File FileName="GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" Line="123" Column="44" />
-      <File FileName="Domain/Enums/PEGI.cs" Line="9" Column="16" />
-      <File FileName="Domain/Enums/AvailableZone.cs" Line="10" Column="20" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" Line="731" Column="1" />
+      <File FileName="Domain/Enums/PEGI.cs" Line="15" Column="1" />
+      <File FileName="Domain/Enums/AvailableZone.cs" Line="13" Column="1" />
       <File FileName="GimmieAJobGamesAPI/Program.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Migrations/20200625123455_GamePropsAddedMig.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Migrations/20200625122210_PegiToEnumMig.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Migrations/20200625113345_InitialMig.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Migrations/20200625133217_GamePropsMig.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Migrations/20200625123455_GamePropsAddedMig.cs" Line="18" Column="1" />
+      <File FileName="Infrastructure/Migrations/20200625133217_GamePropsMig.cs" Line="54" Column="1" />
+      <File FileName="Domain/Contracts/Repositories/IPromotionsRepository.cs" Line="6" Column="66" />
+      <File FileName="Domain/Contracts/Repositories/IStudiosRepository.cs" Line="9" Column="57" />
+      <File FileName="Domain/Contracts/Repositories/IGameStudioRepository.cs" Line="6" Column="67" />
+      <File FileName="Domain/Contracts/Repositories/IGamePromotionRepository.cs" Line="6" Column="73" />
+      <File FileName="Infrastructure/Repositories/StudiosRepository.cs" Line="20" Column="1" />
+      <File FileName="Infrastructure/Repositories/IPromotionRepository.cs" Line="15" Column="22" />
+      <File FileName="Infrastructure/Repositories/GamePromotionRepository.cs" Line="15" Column="22" />
+      <File FileName="Infrastructure/Repositories/GameStudioRepository.cs" Line="18" Column="10" />
+      <File FileName="Domain/Contracts/Mappers/IMapperService.cs" Line="13" Column="30" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GamesMapperService.cs" Line="56" Column="1" />
+      <File FileName="Domain/Contracts/Mappers/IGamesMapperService.cs" Line="12" Column="96" />
+      <File FileName="Domain/Dtos/GameDetail.cs" Line="10" Column="10" />
+      <File FileName="Domain/Dtos/CatalogueGame.cs" Line="15" Column="1" />
+      <File FileName="Domain/Contracts/Services/IGamesMgmtService.cs" Line="17" Column="2" />
+      <File FileName="Infrastructure/ConsulServiceRegistration/ServiceConfig.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Repositories/Repository.cs" Line="32" Column="68" />
+      <File FileName="Domain/Dtos/GamePromotionDto.cs" Line="12" Column="44" />
+      <File FileName="Domain/Dtos/StudioDto.cs" Line="11" Column="65" />
+      <File FileName="Domain/Contracts/Mappers/IStudiosMapperService.cs" Line="7" Column="76" />
+      <File FileName="Domain/Contracts/Mappers/IGamePromotionsMapperService.cs" Line="7" Column="100" />
+      <File FileName="Domain/Contracts/Mappers/IGameStudiosMapperService.cs" Line="7" Column="95" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/StudiosMapperService.cs" Line="10" Column="61" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GamePromotionsMapperService.cs" Line="10" Column="75" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GameStudiosMapperService.cs" Line="4" Column="70" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GimmieAJobGamesAPI" expanded="True">
             <Node name="Domain" expanded="True">
+              <Node name="Contracts" expanded="True">
+                <Node name="Mappers" expanded="True" />
+                <Node name="Repositories" expanded="True" />
+                <Node name="Services" expanded="True" />
+              </Node>
+              <Node name="Dtos" expanded="True" />
               <Node name="EntitiesCF" expanded="True" />
-              <Node name="Enums" expanded="True" />
             </Node>
             <Node name="GimmieAJobGamesAPI" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Extensions" expanded="True" />
-              <Node name="Services" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="MapperServices" expanded="True">
+                  <Node name="GameStudiosMapperService.cs" selected="True" />
+                </Node>
+              </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="Infrastructure" expanded="True">
               <Node name="Dependencies" expanded="True">
                 <Node name="SdkDependencies" expanded="True" />
               </Node>
-              <Node name="Context" expanded="True" />
-              <Node name="EntityTypeConfigurations" expanded="True" />
+              <Node name="ConsulServiceRegistration" expanded="True" />
               <Node name="Helpers" expanded="True" />
-              <Node name="Migrations" expanded="True">
-                <Node name="20200625133217_GamePropsMig.cs" selected="True" />
-              </Node>
               <Node name="Repositories" expanded="True" />
             </Node>
           </Node>
@@ -77,8 +104,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" relfile="GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" line="47" column="1" />
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" relfile="GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" line="20" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Controllers/GamesController.cs" relfile="GimmieAJobGamesAPI/Controllers/GamesController.cs" line="100" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Controllers/GamesController.cs" relfile="GimmieAJobGamesAPI/Controllers/GamesController.cs" line="46" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/Repositories/GamesRepository.cs" relfile="Infrastructure/Repositories/GamesRepository.cs" line="38" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Services/MapperServices/GamesMapperService.cs" relfile="GimmieAJobGamesAPI/Services/MapperServices/GamesMapperService.cs" line="56" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/Repositories/GamesRepository.cs" relfile="Infrastructure/Repositories/GamesRepository.cs" line="25" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

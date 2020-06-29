@@ -18,6 +18,7 @@ namespace Infrastructure.Repositories
 
         public Repository(GAJDbContext context)
         {
+            _uoW = context;
             _dbSet = context.Set<T>();
         }
 
