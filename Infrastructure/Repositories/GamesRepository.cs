@@ -22,9 +22,12 @@ namespace Infrastructure.Repositories
 
         public async Task<Game> GetById(Guid gameId)
         {
-            return await DbSet.Include(g => g.GameStudios)
+            return await DbSet.Include(g => g.GamePromotions)
+                              .ThenInclude(p => p.Promotion)
+                              .Include(g => g.GameStudios)
                               .ThenInclude(gs => gs.Studio)
-                              .Include(g => g.GamePromotions)                              
+                              .ThenInclude(s => s.GamePromotions)
+                              .ThenInclude(sp => sp.Promotion)
                               .SingleOrDefaultAsync(g => g.Id == gameId);
         }
 

@@ -40,6 +40,9 @@ namespace GimmieAJobGamesAPI.Extensions
             services.AddScoped<IGameStudioRepository, GameStudioRepository>();
             services.AddScoped<IGamePromotionRepository, GamePromotionRepository>();
             services.AddScoped<IPromotionsRepository, PromotionsRepository>();
+            services.AddScoped<IStudiosMapperService, StudiosMapperService>();
+            services.AddScoped<IGamePromotionsMapperService, GamePromotionsMapperService>();
+            services.AddScoped<IGamePromotionsMgmtService, GamePromotionsMgmtService>();
 
             return services;
         }

@@ -8,12 +8,12 @@ namespace Domain.Dtos
     {
         public GameDetailDto()
         {
-            GameStudios = new List<GameStudio>();
+            GameStudios = new List<StudioDto>();
         }
 
         public int Players { get; set; }
         public bool IsOnline { get; set; }
         public DateTime? ReleaseDate { get; set; }
-        public ICollection<GameStudio> GameStudios { get; set; }
+        public ICollection<StudioDto> GameStudios { get; set; }
     }
 }
