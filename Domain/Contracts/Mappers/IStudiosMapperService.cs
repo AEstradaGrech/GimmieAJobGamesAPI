@@ -7,6 +7,6 @@ namespace Domain.Contracts.Mappers
 {
     public interface IStudiosMapperService : IMapperService<Studio, StudioDto>
     {
-        Task<StudioFullDto> MapToFullDto(Studio studio);
+        
     }
 }

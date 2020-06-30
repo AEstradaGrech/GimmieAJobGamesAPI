@@ -17,7 +17,13 @@ namespace Infrastructure.Repositories
 
         public async Task<IEnumerable<Game>> GetAll()
         {
-            return DbSet.AsEnumerable();
+            return DbSet.Include(g => g.GamePromotions)
+                        .ThenInclude(p => p.Promotion)
+                        .Include(g => g.GameStudios)
+                        .ThenInclude(gs => gs.Studio)
+                        .ThenInclude(s => s.GamePromotions)
+                        .ThenInclude(sp => sp.Promotion)
+                        .AsEnumerable();
         }
 
         public async Task<Game> GetById(Guid gameId)
@@ -33,18 +39,23 @@ namespace Infrastructure.Repositories
 
         public async Task<IEnumerable<Game>> GetByStudioId(Guid studioId)
         {
-            var response = DbSet.Include(g => g.GameStudios)
+            return DbSet.Include(g => g.GamePromotions)
+                        .ThenInclude(p => p.Promotion)
+                        .Include(g => g.GameStudios)
                         .ThenInclude(gs => gs.Studio)
-                        .Where(s => s.Id == studioId)
-                        .ToList();
-
-            return response;
-        }
+                        .ThenInclude(s => s.GamePromotions)
+                        .ThenInclude(sp => sp.Promotion)
+                        .Where(result => result.GameStudios.Any(gs => gs.StudioId == studioId));                      
+    }
 
         public async Task<IEnumerable<Game>> GetGamesByStudioPromotion(Guid studioId)
         {
             return DbSet.Include(g => g.GamePromotions)
                         .ThenInclude(p => p.Promotion)
+                        .Include(g => g.GameStudios)
+                        .ThenInclude(gs => gs.Studio)
+                        .ThenInclude(s => s.GamePromotions)
+                        .ThenInclude(sp => sp.Promotion)
                         .Where(g => g.GamePromotions.Any(p => p.StudioId == studioId));
                                          
         }
@@ -53,6 +64,10 @@ namespace Infrastructure.Repositories
         {
             return DbSet.Include(g => g.GamePromotions)
                         .ThenInclude(p => p.Promotion)
+                        .Include(g => g.GameStudios)
+                        .ThenInclude(gs => gs.Studio)
+                        .ThenInclude(s => s.GamePromotions)
+                        .ThenInclude(sp => sp.Promotion)
                         .Where(g => g.GamePromotions.Any(p => p.Promotion.Description == promoDesc));
         }
 

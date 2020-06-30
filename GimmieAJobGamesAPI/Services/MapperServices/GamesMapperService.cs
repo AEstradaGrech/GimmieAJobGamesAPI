@@ -44,11 +44,9 @@ namespace GimmieAJobGamesAPI.Services.MapperServices
 
             dto = (GameDetailDto)dto.InjectFrom(entity);
 
-            var dtoStudios = entity.GameStudios.Select(e => e.Studio);            
+            var studioPromos = await GetStudioPromotions(entity);
 
-            var studioPromos = await _promotionsMapper.MapManyToDto(dtoStudios.SelectMany(s => s.GamePromotions));
-
-            dto.GameStudios = await _studiosMapper.MapManyToDto(dtoStudios) as ICollection<StudioDto>;
+            dto.GameStudios = await _studiosMapper.MapManyToDto(entity.GameStudios.Select(x => x.Studio))as ICollection<StudioDto>;
 
             dto.GamePromotions = await _promotionsMapper.MapManyToDto(entity.GamePromotions) as ICollection<GamePromotionDto>;
 
@@ -68,7 +66,15 @@ namespace GimmieAJobGamesAPI.Services.MapperServices
         {
             var dto = new CatalogueGameDto();
 
-            return (CatalogueGameDto)dto.InjectFrom(entity);
+            dto = (CatalogueGameDto)dto.InjectFrom(entity);
+
+            var studioPromos = await GetStudioPromotions(entity);
+
+            dto.GamePromotions = await _promotionsMapper.MapManyToDto(entity.GamePromotions) as ICollection<GamePromotionDto>;
+
+            studioPromos.ToList().ForEach(sp => dto.GamePromotions.Add(sp));
+
+            return dto;
         }
 
         public async Task<IEnumerable<CatalogueGameDto>> MapManyToCatalogueGame(IEnumerable<Game> entities)
@@ -78,6 +84,13 @@ namespace GimmieAJobGamesAPI.Services.MapperServices
             foreach (var entity in entities) { dtos.Add(await MapToCatalogueGame(entity)); }
 
             return dtos;
+        }
+
+        private async Task<IEnumerable<GamePromotionDto>> GetStudioPromotions(Game entity)
+        {
+            var studios = entity.GameStudios.Select(e => e.Studio);
+
+            return await _promotionsMapper.MapManyToDto(studios.SelectMany(s => s.GamePromotions));
         }
     }
 }

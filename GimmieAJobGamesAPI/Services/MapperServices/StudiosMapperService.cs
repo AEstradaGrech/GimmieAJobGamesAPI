@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Domain.Contracts.Mappers;
 using Domain.Dtos;
@@ -10,8 +11,13 @@ namespace GimmieAJobGamesAPI.Services.MapperServices
 {
     public class StudiosMapperService : IStudiosMapperService
     {
+        
+        
+
         public StudiosMapperService()
         {
+            
+            
         }
 
         public async Task<IEnumerable<StudioDto>> MapManyToDto(IEnumerable<Studio> entities)
@@ -40,9 +46,6 @@ namespace GimmieAJobGamesAPI.Services.MapperServices
             throw new NotImplementedException();
         }
 
-        public Task<StudioFullDto> MapToFullDto(Studio studio)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

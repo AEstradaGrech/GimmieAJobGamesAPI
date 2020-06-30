@@ -77,6 +77,7 @@ namespace GimmieAJobGamesAPI
             app.HandleMigrationsAndSeedData()
                .UseHttpsRedirection()
                .UseMvc()
+               .ConfigureGlobalExceptionHandler()
                .UseSwagger()
                .UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "GAJ Games API");});            
         }

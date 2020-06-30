@@ -37,7 +37,7 @@ namespace GimmieAJobGamesAPI.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
+       [HttpGet]
        [Route("get-by-studio-name")]
        [ProducesResponseType((int)HttpStatusCode.OK)]
        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
