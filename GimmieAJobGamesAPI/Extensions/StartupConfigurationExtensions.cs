@@ -14,6 +14,7 @@ using Infrastructure.ConsulServiceRegistration;
 using Infrastructure.Context;
 using Infrastructure.Helpers;
 using Infrastructure.Repositories;
+using Infrastructure.Specifications;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
@@ -52,6 +53,7 @@ namespace GimmieAJobGamesAPI.Extensions
             services.AddScoped<IGamePromotionsMapperService, GamePromotionsMapperService>();
             services.AddScoped<IGamePromotionsMgmtService, GamePromotionsMgmtService>();
             services.AddScoped<IStudiosMgmtService, StudiosMgmtService>();
+            services.AddScoped<IGamesSpecificationFactory, GamesSpecificationFactory>();
 
             return services;
         }

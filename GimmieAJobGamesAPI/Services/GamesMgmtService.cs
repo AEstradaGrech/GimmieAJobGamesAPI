@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Domain.Contracts.Mappers;
 using Domain.Contracts.Repositories;
 using Domain.Contracts.Services;
 using Domain.Dtos;
+using Domain.Filters;
 
 namespace GimmieAJobGamesAPI.Services
 {
@@ -25,6 +27,15 @@ namespace GimmieAJobGamesAPI.Services
         public async Task<IEnumerable<CatalogueGameDto>> GetAllCatalogueGames()
         {
             return await _gamesMapper.MapManyToCatalogueGame(await _gamesRepo.GetAll());
+        }
+
+        public async Task<CatalogueResponseDto> GetByCatalogueFilter(CatalogueFilter filter)
+        {
+            var games = await _gamesRepo.GetByCatalogueFilter(filter);
+
+            var dtos = await _gamesMapper.MapManyToCatalogueGame(games.Skip(filter.Skip).Take(filter.ChunkSize));
+
+            return new CatalogueResponseDto { Games = dtos, TotalCount = games.Count() };
         }
 
         public async Task<IEnumerable<CatalogueGameDto>> GetCatalogueGameByPromoDesc(string promoDesc)

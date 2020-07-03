@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.Dtos;
+using Domain.Filters;
 
 namespace Domain.Contracts.Services
 {
@@ -12,6 +13,7 @@ namespace Domain.Contracts.Services
         Task<IEnumerable<CatalogueGameDto>> GetCatalogueGameByStudioName(string studioName);
         Task<IEnumerable<CatalogueGameDto>> GetCatalogueGameByPromoDesc(string promoDesc);
         Task<GameDetailDto> GetGameDetailByGameId(Guid gameId);
+        Task<CatalogueResponseDto> GetByCatalogueFilter(CatalogueFilter filter);
 
     }
 }

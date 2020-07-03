@@ -1,24 +1,28 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/ConsulServiceRegistration/ServiceDiscoveryHostedService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Context/GAJDbContext.cs">
     <Files>
-      <File FileName="Infrastructure/ConsulServiceRegistration/ServiceConfig.cs" Line="9" Column="46" />
-      <File FileName="Infrastructure/Repositories/Repository.cs" Line="32" Column="68" />
-      <File FileName="Domain/Dtos/GamePromotionDto.cs" Line="7" Column="6" />
-      <File FileName="Domain/Dtos/StudioDto.cs" Line="6" Column="18" />
-      <File FileName="Domain/Contracts/Mappers/IStudiosMapperService.cs" Line="10" Column="9" />
-      <File FileName="Domain/Contracts/Mappers/IGamePromotionsMapperService.cs" Line="7" Column="100" />
-      <File FileName="Domain/Contracts/Mappers/IGameStudiosMapperService.cs" Line="7" Column="95" />
-      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/StudiosMapperService.cs" Line="12" Column="43" />
-      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GamePromotionsMapperService.cs" Line="19" Column="1" />
-      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GameStudiosMapperService.cs" Line="28" Column="25" />
-      <File FileName="Domain/Contracts/Services/IGamePromotionsMgmtService.cs" Line="13" Column="6" />
-      <File FileName="GimmieAJobGamesAPI/Services/GamePromotionsMgmtService.cs" Line="36" Column="104" />
-      <File FileName="Domain/Dtos/StudioFullDto.cs" Line="10" Column="56" />
-      <File FileName="GimmieAJobGamesAPI/Services/StudiosMgmtService.cs" Line="29" Column="1" />
-      <File FileName="Domain/Contracts/Services/IStudiosMgmtService.cs" Line="9" Column="20" />
-      <File FileName="GimmieAJobGamesAPI/Controllers/StudiosController.cs" Line="14" Column="20" />
-      <File FileName="Infrastructure/Helpers/ErrorDetail.cs" Line="7" Column="13" />
-      <File FileName="Infrastructure/ConsulServiceRegistration/ServiceDiscoveryHostedService.cs" Line="5" Column="36" />
+      <File FileName="Domain/Filters/BaseFilter.cs" Line="16" Column="1" />
+      <File FileName="Domain/Filters/CustomerFilter.cs" Line="4" Column="32" />
+      <File FileName="Infrastructure/Specifications/GamesSpecificationFactory.cs" Line="16" Column="52" />
+      <File FileName="Infrastructure/Specifications/CatalogueFilterSpec.cs" Line="42" Column="5" />
+      <File FileName="Infrastructure/Specifications/IGamesSpecificationFactory.cs" Line="9" Column="80" />
+      <File FileName="Domain/Filters/CatalogueFilter.cs" Line="4" Column="46" />
+      <File FileName="Infrastructure/Specifications/Specification.cs" Line="27" Column="29" />
+      <File FileName="Infrastructure/Specifications/TrueSpecification.cs" Line="15" Column="30" />
+      <File FileName="Infrastructure/Specifications/ISpecification.cs" Line="9" Column="51" />
+      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="21" Column="1" />
+      <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" Line="16" Column="78" />
+      <File FileName="Domain/Contracts/Services/IGamesMgmtService.cs" Line="16" Column="34" />
+      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" Line="25" Column="1" />
+      <File FileName="Domain/Filters/CatalogueResponseDto.cs" Line="15" Column="42" />
+      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" Line="24" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" Line="60" Column="1" />
+      <File FileName="Infrastructure/Repositories/StudiosRepository.cs" Line="15" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/StudiosMapperService.cs" Line="21" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GamePromotionsMapperService.cs" Line="15" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GamesMapperService.cs" Line="21" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Startup.cs" Line="48" Column="1" />
+      <File FileName="Infrastructure/Context/GAJDbContext.cs" Line="14" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,18 +30,15 @@
           <Node name="GimmieAJobGamesAPI" expanded="True">
             <Node name="Domain" expanded="True">
               <Node name="Contracts" expanded="True">
-                <Node name="Mappers" expanded="True" />
                 <Node name="Repositories" expanded="True" />
                 <Node name="Services" expanded="True" />
               </Node>
-              <Node name="Dtos" expanded="True" />
               <Node name="EntitiesCF" expanded="True" />
+              <Node name="Filters" expanded="True" />
             </Node>
             <Node name="GimmieAJobGamesAPI" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Extensions" expanded="True">
-                <Node name="StartupConfigurationExtensions.cs" selected="True" />
-              </Node>
+              <Node name="Extensions" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="MapperServices" expanded="True" />
               </Node>
@@ -47,29 +48,25 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="SdkDependencies" expanded="True" />
               </Node>
-              <Node name="ConsulServiceRegistration" expanded="True" />
-              <Node name="Helpers" expanded="True" />
+              <Node name="Context" expanded="True">
+                <Node name="GAJDbContext.cs" selected="True" />
+              </Node>
               <Node name="Repositories" expanded="True" />
+              <Node name="Specifications" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GimmieAJobGamesAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="../../../GimmieAJobGamesAPI/Services/MapperServices/GamesMapperService.cs" line="70" offsetX="-1" offsetY="-1" expression="studioPromos" liveUpdate="False" />
-    <Watch file="../../../GimmieAJobGamesAPI/Services/MapperServices/GamesMapperService.cs" line="70" offsetX="-1" offsetY="-1" expression="studioPromos" liveUpdate="False" />
-    <Watch file="../../../GimmieAJobGamesAPI/Services/MapperServices/GamesMapperService.cs" line="70" offsetX="-1" offsetY="-1" expression="studioPromos" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Controllers/GamesController.cs" relfile="GimmieAJobGamesAPI/Controllers/GamesController.cs" line="100" column="1" />
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Controllers/GamesController.cs" relfile="GimmieAJobGamesAPI/Controllers/GamesController.cs" line="46" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Controllers/GamesController.cs" relfile="GimmieAJobGamesAPI/Controllers/GamesController.cs" line="32" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Services/SqlQueryService.cs" relfile="GimmieAJobGamesAPI/Services/SqlQueryService.cs" line="34" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/Repositories/GamesRepository.cs" relfile="Infrastructure/Repositories/GamesRepository.cs" line="20" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

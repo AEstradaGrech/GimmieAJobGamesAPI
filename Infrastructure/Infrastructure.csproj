@@ -19,6 +19,7 @@
     <Folder Include="EntityTypeConfigurations\" />
     <Folder Include="Repositories\" />
     <Folder Include="ConsulServiceRegistration\" />
+    <Folder Include="Specifications\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />

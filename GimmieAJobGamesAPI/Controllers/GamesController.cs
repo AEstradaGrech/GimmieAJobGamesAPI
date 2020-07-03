@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Domain.Contracts.Services;
+using Domain.Filters;
 using GimmieAJobGamesAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -78,6 +79,7 @@ namespace GimmieAJobGamesAPI.Controllers
 
             return BadRequest();
         }
+
         //[HttpGet]
         //[Route("get-by-PEGI")]
         //[ProducesResponseType((int)HttpStatusCode.OK)]
@@ -91,6 +93,7 @@ namespace GimmieAJobGamesAPI.Controllers
 
         //    return BadRequest();
         //}
+
         [HttpGet]
         [Route("get-promoted-by-studio-name")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -98,6 +101,20 @@ namespace GimmieAJobGamesAPI.Controllers
         public async Task<IActionResult> GetPromotedByStudioName([FromQuery]string studioName)
         {
             var response = await _gamesMgmtService.GetCatalogueGameByStudioPromotion(studioName);
+
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
+
+        [HttpPost]
+        [Route("get-by-catalogue-filter")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetByCatalogueFilter([FromBody]CatalogueFilter filter)
+        {
+            var response = await _gamesMgmtService.GetByCatalogueFilter(filter);
 
             if (response != null)
                 return Ok(response);

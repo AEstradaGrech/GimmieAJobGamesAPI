@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.EntitiesCF;
+using Domain.Filters;
 
 namespace Domain.Contracts.Repositories
 {
@@ -12,5 +13,6 @@ namespace Domain.Contracts.Repositories
         Task<IEnumerable<Game>> GetPromotedGamesByPromoDesc(string promoDesc);
         Task<IEnumerable<Game>> GetByStudioId(Guid studioId);
         Task<Game> GetById(Guid gameId);
+        Task<IEnumerable<Game>> GetByCatalogueFilter(CatalogueFilter filter);
     }
 }
