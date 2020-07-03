@@ -82,7 +82,7 @@ VALUES
 (2,1),
 (3,2),
 (4,2),
-(5,2),
+(5,2), 
 (5,14),
 (6,3),
 (7,10),
@@ -95,7 +95,7 @@ VALUES
 (14,9),
 (15,11),
 (15,17),
-(16,13),
+(16,12),
 (17,15),
 (17,16),
 (18,12),
@@ -105,7 +105,18 @@ VALUES
 (21,8),
 (22,4);
 
-INSERT INTO GamePromotion(GameId, PromotionId, StudioId, AccountTypeId, StartDate, EndDate)
+-- INSERT INTO GamePromotion(GameId, PromotionId, StudioId, AccountTypeId, StartDate, EndDate)
+-- VALUES
+-- (NULL, 2, 2, NULL, NOW(), DATE_SUB(NOW(), INTERVAL 1 MONTH)),
+-- (NULL, 2, 1, 3, NOW(), DATE_SUB(NOW(), INTERVAL  1 MONTH)),
+-- (NULL, 1, 6, 2, NOW(), DATE_SUB(NOW(), INTERVAL  1 MONTH)),
+-- (NULL, 3, 12, 4, NOW(), DATE_SUB(NOW(), INTERVAL  1 MONTH)),
+-- (1, 3, NULL, NULL, NOW(), DATE_SUB(NOW(), INTERVAL 15 DAY)),
+-- (7, 1, NULL, NULL , NOW(), DATE_SUB(NOW(), INTERVAL  15 DAY)),
+-- (12, 5, NULL,NULL , NOW(), DATE_SUB(NOW(), INTERVAL  15 DAY)),
+-- (10, 4, NULL, 1 , NOW(), DATE_SUB(NOW(), INTERVAL 1 Month)),
+-- (22, 3, NULL,NULL , NOW(), DATE_SUB(NOW(), INTERVAL  1 Month));
+INSERT INTO GamePromotion(GameId, PromotionId, StudioId, AccountType, StartDate, EndDate)
 VALUES
 (NULL, 2, 2, NULL, NOW(), DATE_SUB(NOW(), INTERVAL 1 MONTH)),
 (NULL, 2, 1, 3, NOW(), DATE_SUB(NOW(), INTERVAL  1 MONTH)),
