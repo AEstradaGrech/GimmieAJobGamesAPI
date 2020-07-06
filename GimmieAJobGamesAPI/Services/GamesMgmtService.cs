@@ -35,7 +35,7 @@ namespace GimmieAJobGamesAPI.Services
 
             var dtos = await _gamesMapper.MapManyToCatalogueGame(games.Skip(filter.Skip).Take(filter.ChunkSize));
 
-            return new CatalogueResponseDto { Games = dtos, TotalCount = games.Count() };
+            return new CatalogueResponseDto { Games = dtos.ToList(), TotalCount = games.Count() };
         }
 
         public async Task<IEnumerable<CatalogueGameDto>> GetCatalogueGameByPromoDesc(string promoDesc)

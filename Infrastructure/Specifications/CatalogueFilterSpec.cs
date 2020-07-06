@@ -37,6 +37,7 @@ namespace Infrastructure.Specifications
 
             return new TrueSpecification<Game>();
         }
+
         private Specification<Game> GetTitleSpec()
         {
             if (!string.IsNullOrEmpty(_filter.Title))

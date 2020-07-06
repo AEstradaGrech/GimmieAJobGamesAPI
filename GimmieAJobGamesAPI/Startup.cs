@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Domain.Contracts;
+using GajGamesServiceRouter.Extensions;
 using GimmieAJobGamesAPI.Extensions;
 using Infrastructure.Context;
 using Infrastructure.Helpers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +19,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace GimmieAJobGamesAPI
@@ -47,7 +52,38 @@ namespace GimmieAJobGamesAPI
 
             services.AddDbContext<GAJDbContext>(options => options.UseMySql(StaticStrings.ConnectionString));
 
-            services.RegisterServices();
+            services.RegisterServices()
+                    .SetAuthorizationPolicies()
+                    .ConfigureConsul(Configuration);
+
+            var cert = new X509Certificate2(Path.Combine(".", "GajCert.pfx"), "gajgames");
+
+            if (cert != null)
+                Console.WriteLine("<<< CERT FOUND >>>");
+
+            var key = new X509SecurityKey(cert);
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+            
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = key,
+                    ValidateIssuer = true,
+                    ValidateAudience = false,                                                                                
+                    ValidIssuer = "http://gaj-ids4"
+                };
+            });
+        
+            
 
             //services.Scan(scan => scan.FromAssembliesOf())
 

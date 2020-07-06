@@ -48,7 +48,7 @@ namespace GimmieAJobGamesAPI.Services.MapperServices
 
             dto.GameStudios = await _studiosMapper.MapManyToDto(entity.GameStudios.Select(x => x.Studio))as ICollection<StudioDto>;
 
-            dto.GamePromotions = await _promotionsMapper.MapManyToDto(entity.GamePromotions) as ICollection<GamePromotionDto>;
+            dto.GamePromotions = await _promotionsMapper.MapManyToDto(entity.GamePromotions) as List<GamePromotionDto>;
 
             studioPromos.ToList().ForEach(sp => dto.GamePromotions.Add(sp));
           
@@ -70,7 +70,7 @@ namespace GimmieAJobGamesAPI.Services.MapperServices
 
             var studioPromos = await GetStudioPromotions(entity);
 
-            dto.GamePromotions = await _promotionsMapper.MapManyToDto(entity.GamePromotions) as ICollection<GamePromotionDto>;
+            dto.GamePromotions = await _promotionsMapper.MapManyToDto(entity.GamePromotions) as List<GamePromotionDto>;
 
             studioPromos.ToList().ForEach(sp => dto.GamePromotions.Add(sp));
 

@@ -8,10 +8,10 @@ namespace Domain.Filters
     {
         public CatalogueResponseDto()
         {
-            Games = new List<GameDetailDto>();
+            Games = new List<CatalogueGameDto>();
         }
 
-        public IEnumerable<CatalogueGameDto> Games { get; set; }
+        public List<CatalogueGameDto> Games { get; set; }
         public int TotalCount { get; set; }
     }
 }
