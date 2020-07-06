@@ -90,7 +90,7 @@ namespace GimmieAJobGamesAPI.Extensions
                         {
 
                             StatusCode = context.Response.StatusCode,
-                            Message = $"Internal Server Error. Trace :: {contextFeature.Error}"
+                            Message = $"Internal Server Error. Exception Message :: {contextFeature.Error}"
 
                         }.ToString());
                     }

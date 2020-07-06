@@ -8,7 +8,7 @@ namespace Infrastructure.Specifications
     public class Specification<T> : ISpecification<T> where T : Entity
     {
         private Expression<Func<T, bool>> _predicate;
-        public Expression<Func<T, bool>> Predicate => _predicate;
+        public Expression<Func<T, bool>> Predicate { get => _predicate; set => _predicate = value; }
 
         public Specification() { }
 
@@ -33,11 +33,11 @@ namespace Infrastructure.Specifications
 
         public static Specification<T> operator |(Specification<T> leftHand, Specification<T> rightHand)
         {
-            InvocationExpression rightInvoke = System.Linq.Expressions.Expression.Invoke(rightHand.Predicate, leftHand.Predicate.Parameters.Cast<Expression>());
+            InvocationExpression rightInvoke = Expression.Invoke(rightHand.Predicate, leftHand.Predicate.Parameters.Cast<Expression>());
 
-            BinaryExpression newExpression = System.Linq.Expressions.Expression.MakeBinary(ExpressionType.Or, leftHand.Predicate.Body, rightInvoke);
+            BinaryExpression newExpression = Expression.MakeBinary(ExpressionType.Or, leftHand.Predicate.Body, rightInvoke);
 
-            return new Specification<T>(System.Linq.Expressions.Expression.Lambda<Func<T, bool>>(newExpression, leftHand.Predicate.Parameters));
+            return new Specification<T>(Expression.Lambda<Func<T, bool>>(newExpression, leftHand.Predicate.Parameters));
         }
     }
 }

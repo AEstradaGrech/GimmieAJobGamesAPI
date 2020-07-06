@@ -36,61 +36,43 @@ namespace Infrastructure.Repositories
             var spec = await _gamesSpecificationFactory.GetCatalogueFilterSpec(filter);
 
             if (string.IsNullOrEmpty(filter.Studio))
-                Console.WriteLine("STUDIO IS NULL");
-            else
-                Console.WriteLine("STUDIO IS NO NULL");
-
-            if (string.IsNullOrEmpty(filter.Studio))
             {
 
-                switch (filter.IsOrderByDescending)
-                {
-                    case (true):
+                var set = DbSet.Include(g => g.GamePromotions)
+                               .ThenInclude(p => p.Promotion)
+                               .Include(g => g.GameStudios)
+                               .ThenInclude(gs => gs.Studio)
+                               .ThenInclude(s => s.GamePromotions)
+                               .ThenInclude(sp => sp.Promotion)
+                               .Where(spec.SatisfiedBy());
 
-                        return DbSet.Where(spec.SatisfiedBy())
-                                    .OrderByDescending(g => g.Title)
-                                    .AsEnumerable();
 
-                    case (false):
-
-                        return DbSet.Where(spec.SatisfiedBy())
-                                    .OrderBy(g => g.Title)
-                                    .AsEnumerable();
-
-                }
+                return filter.IsOrderByDescending ?
+                       set.OrderByDescending(g => g.Title).AsEnumerable() :
+                       set.OrderBy(g => g.Title).AsEnumerable();                
 
             }
             else
             {
 
                 var set = DbSet.Include(g => g.GamePromotions)
-                                .ThenInclude(p => p.Promotion)
-                                .Include(g => g.GameStudios)
-                                .ThenInclude(gs => gs.Studio)
-                                .ThenInclude(s => s.GamePromotions)
-                                .ThenInclude(sp => sp.Promotion)
-                                .Where(result => result.GameStudios.Any(gs => gs.Studio.StudioName == filter.Studio));
+                               .ThenInclude(p => p.Promotion)
+                               .Include(g => g.GameStudios)
+                               .ThenInclude(gs => gs.Studio)
+                               .ThenInclude(s => s.GamePromotions)
+                               .ThenInclude(sp => sp.Promotion)
+                               .Where(result => result.GameStudios.Any(gs => gs.Studio.StudioName == filter.Studio));
 
+                return filter.IsOrderByDescending ?
+                       set.Where(spec.SatisfiedBy())
+                          .OrderByDescending(g => g.Title)
+                          .AsEnumerable() :
+                       set.Where(spec.SatisfiedBy())
+                          .OrderBy(g => g.Title)
+                          .AsEnumerable();
 
-                switch (filter.IsOrderByDescending)
-                {
-                    case (true):
-
-                        return set.Where(spec.SatisfiedBy())
-                                    .OrderByDescending(g => g.Title)
-                                    .AsEnumerable();
-
-                    case (false):
-                            
-                        return set.Where(spec.SatisfiedBy())
-                                    .OrderBy(g => g.Title)
-                                    .AsEnumerable();
-                }
-            
             }
-
-            return null;
-            
+                       
         }
 
         public async Task<Game> GetById(Guid gameId)

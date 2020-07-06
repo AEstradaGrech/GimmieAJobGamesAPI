@@ -20,6 +20,7 @@
     <Folder Include="Repositories\" />
     <Folder Include="ConsulServiceRegistration\" />
     <Folder Include="Specifications\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />

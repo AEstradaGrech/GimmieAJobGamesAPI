@@ -19,10 +19,14 @@ namespace Infrastructure.Specifications
             var pegiSpec = GetPegiSpec();
             var titleSpec = GetTitleSpec();
             var genreSpec = GetGenreSpec();
+            var priceSpec = GetPriceSpec();
+            var dateSpec = GetDateSpec();
 
             return (pegiSpec &
                     titleSpec &
-                    genreSpec).SatisfiedBy();
+                    genreSpec &
+                    priceSpec &
+                    dateSpec).SatisfiedBy();
         }
 
         private Specification<Game> GetPegiSpec()
@@ -43,9 +47,26 @@ namespace Infrastructure.Specifications
         private Specification<Game> GetGenreSpec()
         {
             if (!string.IsNullOrEmpty(_filter.Genre))
-                return new Specification<Game>(g => g.Genre == _filter.Genre);
+            {
+                var genres = _filter.Genre.Split('/');
+
+                return new GameGenreSpec(genres);
+            }
+                
+            return new TrueSpecification<Game>();
+        }
+
+        private Specification<Game> GetPriceSpec()
+        {
+            if (_filter.Price != null)
+                return new GamePriceSpec(_filter.IsGreaterThanPrice, (int)_filter.Price);
 
             return new TrueSpecification<Game>();
+        }
+
+        private Specification<Game> GetDateSpec()
+        {            
+           return new GameReleaseDateSpec(_filter.MinReleaseDate, _filter.MaxReleaseDate);            
         }
     }
 }

@@ -29,4 +29,7 @@
     <Compile Remove="EntitiesCF\AccountType.cs" />
     <Compile Remove="EntitiesCF\Customer.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
 </Project>
