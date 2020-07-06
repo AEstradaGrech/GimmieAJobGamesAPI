@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Domain.EntitiesCF;
+using Domain.Enums;
 using Domain.Filters;
 
 namespace Infrastructure.Specifications
@@ -32,7 +33,7 @@ namespace Infrastructure.Specifications
         private Specification<Game> GetPegiSpec()
         {
             if (_filter.PEGI != null)
-                return new Specification<Game>(g => g.PEGI == _filter.PEGI);
+                return new GamePegiSpec((PEGI)_filter.PEGI, _filter.IsGreaterThanPEGI);
 
             return new TrueSpecification<Game>();
         }
@@ -66,7 +67,7 @@ namespace Infrastructure.Specifications
 
         private Specification<Game> GetDateSpec()
         {            
-           return new GameReleaseDateSpec(_filter.MinReleaseDate, _filter.MaxReleaseDate);            
+            return new GameReleaseDateSpec(_filter.MinReleaseDate, _filter.MaxReleaseDate);            
         }
     }
 }

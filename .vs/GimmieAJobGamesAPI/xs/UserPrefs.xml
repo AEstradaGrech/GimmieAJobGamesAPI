@@ -1,22 +1,22 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Specifications/GameReleaseDateSpec.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Infrastructure/Specifications/GamePegiSpec.cs">
     <Files>
-      <File FileName="Domain/Filters/BaseFilter.cs" Line="22" Column="65" />
+      <File FileName="Domain/Filters/BaseFilter.cs" Line="23" Column="51" />
       <File FileName="Domain/Filters/CustomerFilter.cs" />
-      <File FileName="Infrastructure/Specifications/GamesSpecificationFactory.cs" Line="12" Column="1" />
-      <File FileName="Infrastructure/Specifications/CatalogueFilterSpec.cs" Line="42" Column="50" />
+      <File FileName="Infrastructure/Specifications/GamesSpecificationFactory.cs" Line="9" Column="6" />
+      <File FileName="Infrastructure/Specifications/CatalogueFilterSpec.cs" Line="41" Column="54" />
       <File FileName="Infrastructure/Specifications/IGamesSpecificationFactory.cs" />
       <File FileName="Domain/Filters/CatalogueFilter.cs" />
-      <File FileName="Infrastructure/Specifications/Specification.cs" Line="20" Column="23" />
-      <File FileName="Infrastructure/Specifications/TrueSpecification.cs" Line="11" Column="1" />
+      <File FileName="Infrastructure/Specifications/Specification.cs" Line="15" Column="1" />
+      <File FileName="Infrastructure/Specifications/TrueSpecification.cs" Line="9" Column="1" />
       <File FileName="Infrastructure/Specifications/ISpecification.cs" />
-      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="36" Column="1" />
+      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="42" Column="1" />
       <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" />
       <File FileName="Domain/Contracts/Services/IGamesMgmtService.cs" />
-      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" Line="34" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" Line="36" Column="1" />
       <File FileName="Domain/Filters/CatalogueResponseDto.cs" />
       <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" />
-      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" Line="93" Column="74" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" Line="48" Column="48" />
       <File FileName="Infrastructure/Repositories/StudiosRepository.cs" />
       <File FileName="GimmieAJobGamesAPI/Services/MapperServices/StudiosMapperService.cs" />
       <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GamePromotionsMapperService.cs" />
@@ -24,12 +24,21 @@
       <File FileName="GimmieAJobGamesAPI/Startup.cs" Line="80" Column="37" />
       <File FileName="Infrastructure/Context/GAJDbContext.cs" />
       <File FileName="GimmieAJobGamesAPI/Services/GamePromotionsMgmtService.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/Specifications/GamePegiSpec.cs" Line="35" Column="1" />
+      <File FileName="Infrastructure/Specifications/GamePegiSpec.cs" Line="22" Column="1" />
       <File FileName="Infrastructure/Extensions/CombineExpressionsExtension.cs" Line="23" Column="95" />
       <File FileName="Infrastructure/Helpers/ErrorDetail.cs" Line="6" Column="18" />
-      <File FileName="Infrastructure/Specifications/GamePriceSpecification.cs" Line="15" Column="40" />
+      <File FileName="Infrastructure/Specifications/GamePriceSpecification.cs" Line="17" Column="1" />
       <File FileName="Infrastructure/Helpers/CustomDateJasonConverter.cs" Line="2" Column="7" />
-      <File FileName="Infrastructure/Specifications/GameReleaseDateSpec.cs" Line="4" Column="56" />
+      <File FileName="Infrastructure/Specifications/GameReleaseDateSpec.cs" Line="22" Column="1" />
+      <File FileName="Infrastructure/Helpers/BaseSortingParameterFactory.cs" Line="7" Column="97" />
+      <File FileName="Infrastructure/Helpers/GameSortingParamExpressionFactory.cs" Line="9" Column="6" />
+      <File FileName="Infrastructure/Helpers/IGameSortingParamExpressionFactory.cs" Line="8" Column="1" />
+      <File FileName="Infrastructure/Helpers/IBaseSortingParamExpressionFactory.cs" Line="9" Column="80" />
+      <File FileName="Domain/Enums/GameSortingParam.cs" Line="9" Column="17" />
+      <File FileName="Domain/Enums/StudioSortingParam.cs" Line="7" Column="25" />
+      <File FileName="Infrastructure/Helpers/IStudioSortingParamExpressionFactory.cs" Line="6" Column="101" />
+      <File FileName="Infrastructure/Helpers/StudioSortingParamExpressionFactory.cs" Line="16" Column="58" />
+      <File FileName="Infrastructure/Specifications/GamePegiSpec.cs" Line="4" Column="49" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -62,7 +71,7 @@
               <Node name="Helpers" expanded="True" />
               <Node name="Repositories" expanded="True" />
               <Node name="Specifications" expanded="True">
-                <Node name="GameReleaseDateSpec.cs" selected="True" />
+                <Node name="GamePegiSpec.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -77,8 +86,7 @@
     <BreakpointStore>
       <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Controllers/GamesController.cs" relfile="GimmieAJobGamesAPI/Controllers/GamesController.cs" line="32" column="1" />
       <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Services/SqlQueryService.cs" relfile="GimmieAJobGamesAPI/Services/SqlQueryService.cs" line="34" column="1" />
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/Specifications/CatalogueFilterSpec.cs" relfile="Infrastructure/Specifications/CatalogueFilterSpec.cs" line="51" column="1" />
-      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/Specifications/GameGenreSpec.cs" relfile="Infrastructure/Specifications/GameGenreSpec.cs" line="22" column="1" />
+      <Breakpoint file="/Volumes/TOSHIBA EXT/GimmieAJobGamesAPI/GimmieAJobGamesAPI/Infrastructure/Repositories/GamesRepository.cs" relfile="Infrastructure/Repositories/GamesRepository.cs" line="42" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

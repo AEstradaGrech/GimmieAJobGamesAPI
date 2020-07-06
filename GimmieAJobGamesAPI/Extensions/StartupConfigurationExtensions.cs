@@ -42,18 +42,46 @@ namespace GimmieAJobGamesAPI.Extensions
             //                          .AddClasses()
             //                          .AsMatchingInterface());
 
+            return services.RegisterRepositories()
+                           .RegisterMgmtServices()
+                           .RegisterMapperServices()
+                           .RegisterFactories();
+        }
+
+        private static IServiceCollection RegisterRepositories(this IServiceCollection services)
+        {
             services.AddScoped<IGamesRepository, GamesRepository>();
-            services.AddScoped<IGamesMgmtService, GamesMgmtService>();
-            services.AddScoped<IGamesMapperService, GamesMapperService>();
             services.AddScoped<IStudiosRepository, StudiosRepository>();
             services.AddScoped<IGameStudioRepository, GameStudioRepository>();
             services.AddScoped<IGamePromotionRepository, GamePromotionRepository>();
             services.AddScoped<IPromotionsRepository, PromotionsRepository>();
+
+            return services;
+        }
+
+        private static IServiceCollection RegisterMapperServices(this IServiceCollection services)
+        {
             services.AddScoped<IStudiosMapperService, StudiosMapperService>();
             services.AddScoped<IGamePromotionsMapperService, GamePromotionsMapperService>();
+            services.AddScoped<IGamesMapperService, GamesMapperService>();
+
+            return services;
+        }
+
+        private static IServiceCollection RegisterMgmtServices(this IServiceCollection services)
+        {
+            services.AddScoped<IGamesMgmtService, GamesMgmtService>();
             services.AddScoped<IGamePromotionsMgmtService, GamePromotionsMgmtService>();
             services.AddScoped<IStudiosMgmtService, StudiosMgmtService>();
+            
+            return services;
+        }
+
+        private static IServiceCollection RegisterFactories(this IServiceCollection services)
+        {
             services.AddScoped<IGamesSpecificationFactory, GamesSpecificationFactory>();
+            services.AddScoped<IGameSortingParamExpressionFactory, GameSortingParamExpressionFactory>();
+            services.AddScoped<IStudioSortingParamExpressionFactory, StudioSortingParamExpressionFactory>();
 
             return services;
         }

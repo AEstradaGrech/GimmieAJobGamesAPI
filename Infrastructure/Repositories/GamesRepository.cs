@@ -6,6 +6,7 @@ using Domain.Contracts.Repositories;
 using Domain.EntitiesCF;
 using Domain.Filters;
 using Infrastructure.Context;
+using Infrastructure.Helpers;
 using Infrastructure.Specifications;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,10 +15,13 @@ namespace Infrastructure.Repositories
     public class GamesRepository : Repository<Game>, IGamesRepository
     {
         private readonly IGamesSpecificationFactory _gamesSpecificationFactory;
+        private readonly IGameSortingParamExpressionFactory _sortingParamExpressionFactory;
 
-        public GamesRepository(GAJDbContext context, IGamesSpecificationFactory specFactory) : base(context)
+        public GamesRepository(GAJDbContext context, IGamesSpecificationFactory specFactory,
+            IGameSortingParamExpressionFactory sortingParamExpressionFactory) : base(context)
         {
             _gamesSpecificationFactory = specFactory;
+            _sortingParamExpressionFactory = sortingParamExpressionFactory;
         }
 
         public async Task<IEnumerable<Game>> GetAll()
@@ -35,6 +39,8 @@ namespace Infrastructure.Repositories
         {
             var spec = await _gamesSpecificationFactory.GetCatalogueFilterSpec(filter);
 
+            var sortingParameter = _sortingParamExpressionFactory.GetSortingParamExpresion(filter.SortingParameter);
+
             if (string.IsNullOrEmpty(filter.Studio))
             {
 
@@ -48,8 +54,8 @@ namespace Infrastructure.Repositories
 
 
                 return filter.IsOrderByDescending ?
-                       set.OrderByDescending(g => g.Title).AsEnumerable() :
-                       set.OrderBy(g => g.Title).AsEnumerable();                
+                       set.OrderByDescending(sortingParameter).AsEnumerable() :
+                       set.OrderBy(sortingParameter).AsEnumerable();                
 
             }
             else
@@ -65,10 +71,10 @@ namespace Infrastructure.Repositories
 
                 return filter.IsOrderByDescending ?
                        set.Where(spec.SatisfiedBy())
-                          .OrderByDescending(g => g.Title)
+                          .OrderByDescending(sortingParameter)
                           .AsEnumerable() :
                        set.Where(spec.SatisfiedBy())
-                          .OrderBy(g => g.Title)
+                          .OrderBy(sortingParameter)
                           .AsEnumerable();
 
             }
