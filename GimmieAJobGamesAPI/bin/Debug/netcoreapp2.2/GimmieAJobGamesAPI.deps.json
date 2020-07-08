@@ -332,6 +332,7 @@
           "Consul": "1.6.1.1",
           "Domain": "1.0.0",
           "EntityFramework": "6.0.0",
+          "Microsoft.AspNetCore.Authorization": "2.2.0",
           "Microsoft.EntityFrameworkCore": "2.2.6",
           "Microsoft.EntityFrameworkCore.Design": "2.2.6",
           "Microsoft.Extensions.Hosting": "2.2.0",

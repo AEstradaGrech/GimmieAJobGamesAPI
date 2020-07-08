@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Domain.Contracts.Services;
 using Domain.Filters;
 using GimmieAJobGamesAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -110,6 +111,7 @@ namespace GimmieAJobGamesAPI.Controllers
 
         [HttpPost]
         [Route("get-by-catalogue-filter")]
+        [Authorize("Anonymous")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> GetByCatalogueFilter([FromBody]CatalogueFilter filter)

@@ -38,17 +38,23 @@ namespace GimmieAJobGamesAPI
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("Cors",
-                    builder => builder.AllowAnyOrigin()
-                                      .AllowAnyHeader()
-                                      .AllowAnyOrigin());
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                    .SetIsOriginAllowed((host) => true)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .WithExposedHeaders("Authorization")
+                    .AllowCredentials());
             });
 
             services.AddMvc()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                     .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
 
-            StaticStrings.ConnectionString = Configuration["DbConnection"];
+            var connectionString = Environment.GetEnvironmentVariable("ConnectionString") ??
+                                   Configuration["DbConnectionString"];
+
+            StaticStrings.ConnectionString = connectionString;
 
             services.AddDbContext<GAJDbContext>(options => options.UseMySql(StaticStrings.ConnectionString));
 
@@ -100,9 +106,7 @@ namespace GimmieAJobGamesAPI
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-
-               // app.SetDatabase(Configuration["DbConnection"]);
+                app.UseDeveloperExceptionPage();               
             }
             else
             {
@@ -110,9 +114,11 @@ namespace GimmieAJobGamesAPI
                 app.UseHsts();
             }
 
-            app.HandleMigrationsAndSeedData()
+            app.UseCors("CorsPolicy")
+               .HandleMigrationsAndSeedData()
                .UseHttpsRedirection()
-               .UseMvc()
+               .UseAuthentication()
+               .UseMvc()               
                .ConfigureGlobalExceptionHandler()
                .UseSwagger()
                .UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "GAJ Games API");});            

@@ -23,4 +23,5 @@ CREATE PROCEDURE GetGamesByPromoDesc(IN PrDesc CHAR(50))
     WHERE s.Name LIKE '%Bethesda%';
 
 	SELECT g.Title, g.Price, g.ReleaseDate, g.Genre FROM Games AS g
-	ORDER BY g.Price
+	ORDER BY (g.Price AND g.Genre) ASC;
+	

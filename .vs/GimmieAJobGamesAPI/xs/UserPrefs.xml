@@ -1,15 +1,13 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GimmieAJobGamesAPI/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GimmieAJobGamesAPI/Controllers/GamesController.cs">
     <Files>
-      <File FileName="GimmieAJobGamesAPI/Startup.cs" Line="51" Column="22" />
+      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" Line="114" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="GimmieAJobGamesAPI" expanded="True">
-            <Node name="GimmieAJobGamesAPI" expanded="True">
-              <Node name="Startup.cs" selected="True" />
-            </Node>
+          <Node name="GimmieAJobGamesAPI" expanded="True" selected="True">
+            <Node name="GimmieAJobGamesAPI" expanded="True" />
           </Node>
         </State>
       </Pad>
