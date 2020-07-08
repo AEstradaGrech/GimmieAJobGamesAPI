@@ -18,6 +18,9 @@
     <Folder Include="Helpers\" />
     <Folder Include="EntityTypeConfigurations\" />
     <Folder Include="Repositories\" />
+    <Folder Include="ConsulServiceRegistration\" />
+    <Folder Include="Specifications\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
@@ -27,6 +30,9 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
     <PackageReference Include="EntityFramework" Version="6.0.0" />
+    <PackageReference Include="Consul" Version="1.6.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DbScripts\GamesCatalogueScript.sql" />

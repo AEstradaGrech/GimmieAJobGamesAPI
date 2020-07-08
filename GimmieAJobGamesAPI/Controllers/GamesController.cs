@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Domain.Contracts.Services;
+using Domain.Filters;
 using GimmieAJobGamesAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,34 +17,70 @@ namespace GimmieAJobGamesAPI.Controllers
     [Route("api/v1/[controller]")]
     public class GamesController : ControllerBase
     {
-           
-        // GET: api/values
-        //[HttpGet]
-        //[Route("get-by-studio-name")]
-        //[ProducesResponseType((int)HttpStatusCode.OK)]
-        //[ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        //public async Task<IActionResult>GetByStudioName([FromQuery]string studioName)
-        //{
-        //    var response = await _sqlService.GetStudioGames(studioName);
+        private readonly IGamesMgmtService _gamesMgmtService;
 
-        //    if (response != null)
-        //        return Ok(response);
+        public GamesController(IGamesMgmtService gamesMgmtService)
+        {
+            _gamesMgmtService = gamesMgmtService;
+        }
 
-        //    return BadRequest();
-        //}
-        //[HttpGet]
-        //[Route("get-by-promo-desc")]
-        //[ProducesResponseType((int)HttpStatusCode.OK)]
-        //[ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        //public async Task<IActionResult> GetByPromoDesc([FromQuery]string promoDesc)
-        //{
-        //    var response = await _sqlService.GetGamesByPromoDesc(promoDesc);
 
-        //    if (response != null)
-        //        return Ok(response);
+        [HttpGet]
+        [Route("get-full-catalogue")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetFullCatalogue()
+        {
+            var response = await _gamesMgmtService.GetAllCatalogueGames();
 
-        //    return BadRequest();
-        //}
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
+
+       [HttpGet]
+       [Route("get-by-studio-name")]
+       [ProducesResponseType((int)HttpStatusCode.OK)]
+       [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetByStudioName([FromQuery]string studioName)
+        {
+            var response = await _gamesMgmtService.GetCatalogueGameByStudioName(studioName);
+
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
+
+        [HttpGet]
+        [Route("get-by-promo-desc")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetByPromoDesc([FromQuery]string promoDesc)
+        {
+            var response = await _gamesMgmtService.GetCatalogueGameByPromoDesc(promoDesc);
+
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
+
+        [HttpGet]
+        [Route("get-game-detail")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetGameDetail([FromQuery]Guid gameId)
+        {
+            var response = await _gamesMgmtService.GetGameDetailByGameId(gameId);
+
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
+
         //[HttpGet]
         //[Route("get-by-PEGI")]
         //[ProducesResponseType((int)HttpStatusCode.OK)]
@@ -55,18 +94,34 @@ namespace GimmieAJobGamesAPI.Controllers
 
         //    return BadRequest();
         //}
-        //[HttpGet]
-        //[Route("get-promoted-by-studio-name")]
-        //[ProducesResponseType((int)HttpStatusCode.OK)]
-        //[ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        //public async Task<IActionResult> GetPromotedByStudioName([FromQuery]string studioName)
-        //{
-        //    var response = await _sqlService.GetPromotedGamesByStudioName(studioName);
 
-        //    if (response != null)
-        //        return Ok(response);
+        [HttpGet]
+        [Route("get-promoted-by-studio-name")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetPromotedByStudioName([FromQuery]string studioName)
+        {
+            var response = await _gamesMgmtService.GetCatalogueGameByStudioPromotion(studioName);
 
-        //    return BadRequest();
-        //}
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
+
+        [HttpPost]
+        [Route("get-by-catalogue-filter")]
+        [Authorize("Anonymous")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetByCatalogueFilter([FromBody]CatalogueFilter filter)
+        {
+            var response = await _gamesMgmtService.GetByCatalogueFilter(filter);
+
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
     }
 }

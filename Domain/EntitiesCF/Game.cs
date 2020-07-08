@@ -6,6 +6,12 @@ namespace Domain.EntitiesCF
 {
     public class Game : Entity
     {
+        public Game()
+        {
+            GameStudios = new List<GameStudio>();
+            GamePromotions = new List<GamePromotion>();
+        }
+
         public string Title { get; set; }
         public string Genre { get; set; }        
         public PEGI PEGI { get; set; }
