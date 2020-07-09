@@ -1,13 +1,36 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GimmieAJobGamesAPI/Controllers/GamesController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GimmieAJobGamesAPI/Startup.cs">
     <Files>
-      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" Line="114" Column="33" />
+      <File FileName="Infrastructure/Repositories/StudiosRepository.cs" Line="26" Column="25" />
+      <File FileName="Domain/Contracts/Repositories/IStudiosRepository.cs" Line="11" Column="52" />
+      <File FileName="Domain/Contracts/Repositories/IGamesRepository.cs" Line="17" Column="51" />
+      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="109" Column="40" />
+      <File FileName="Domain/Contracts/Services/IGamesMgmtService.cs" Line="17" Column="51" />
+      <File FileName="Domain/Contracts/Services/IStudiosMgmtService.cs" Line="11" Column="49" />
+      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" Line="91" Column="35" />
+      <File FileName="GimmieAJobGamesAPI/Services/StudiosMgmtService.cs" Line="38" Column="56" />
+      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" Line="140" Column="10" />
+      <File FileName="GimmieAJobGamesAPI/Controllers/StudiosController.cs" Line="46" Column="71" />
+      <File FileName="GimmieAJobGamesAPI/Startup.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="GimmieAJobGamesAPI" expanded="True" selected="True">
-            <Node name="GimmieAJobGamesAPI" expanded="True" />
+          <Node name="GimmieAJobGamesAPI" expanded="True">
+            <Node name="Domain" expanded="True">
+              <Node name="Contracts" expanded="True">
+                <Node name="Repositories" expanded="True" />
+                <Node name="Services" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="GimmieAJobGamesAPI" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+            <Node name="Infrastructure" expanded="True">
+              <Node name="Repositories" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
