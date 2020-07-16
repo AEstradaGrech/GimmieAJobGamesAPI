@@ -32,5 +32,10 @@ namespace GimmieAJobGamesAPI.Services
 
             return studio;
         }
+
+        public async Task<IEnumerable<string>> GetStudioNames()
+        {
+            return await _studiosRepo.GetStudioNames();
+        }
     }
 }

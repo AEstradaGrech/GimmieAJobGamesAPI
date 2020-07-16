@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Domain.Contracts.Mappers;
 using Domain.Contracts.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -28,6 +29,21 @@ namespace GimmieAJobGamesAPI.Controllers
         public async Task<IActionResult> GetStudioByName([FromQuery]string studioName)
         {
             var response = await _studiosMgmtService.GetByName(studioName);
+
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
+
+        [HttpGet]
+        [Route("get-studio-names")]
+        [Authorize("Anonymous")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetStudioNames()
+        {
+            var response = await _studiosMgmtService.GetStudioNames();
 
             if (response != null)
                 return Ok(response);

@@ -14,5 +14,6 @@ namespace Domain.Contracts.Repositories
         Task<IEnumerable<Game>> GetByStudioId(Guid studioId);
         Task<Game> GetById(Guid gameId);
         Task<IEnumerable<Game>> GetByCatalogueFilter(CatalogueFilter filter);
+        Task<IEnumerable<string>> GetGameGenres();
     }
 }

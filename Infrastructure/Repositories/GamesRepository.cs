@@ -103,6 +103,12 @@ namespace Infrastructure.Repositories
                         .Where(result => result.GameStudios.Any(gs => gs.StudioId == studioId));                      
     }
 
+        public async Task<IEnumerable<string>> GetGameGenres()
+        {
+            return DbSet.Select(s => s.Genre)
+                        .AsEnumerable();            
+        }
+
         public async Task<IEnumerable<Game>> GetGamesByStudioPromotion(Guid studioId)
         {
             return DbSet.Include(g => g.GamePromotions)

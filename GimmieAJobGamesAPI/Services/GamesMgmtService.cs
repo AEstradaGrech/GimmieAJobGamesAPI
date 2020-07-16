@@ -70,5 +70,25 @@ namespace GimmieAJobGamesAPI.Services
         {
             return await _gamesMapper.MapToDto(await _gamesRepo.GetById(gameId));
         }
+
+        public async Task<IEnumerable<string>> GetGameGenres()
+        {
+            var returnedGenres = new List<string>();
+
+            var genres = await _gamesRepo.GetGameGenres();
+
+            foreach(var genre in genres)
+            {
+                var splittedGenre = genre.Split('/').ToList();
+
+                splittedGenre.ForEach(item =>
+                {
+                    if (!returnedGenres.Contains(item))
+                        returnedGenres.Add(item);
+                });
+            }
+
+            return returnedGenres;
+        }
     }
 }

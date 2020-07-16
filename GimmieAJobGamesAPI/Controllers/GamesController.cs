@@ -123,5 +123,20 @@ namespace GimmieAJobGamesAPI.Controllers
 
             return BadRequest();
         }
+
+        [HttpGet]
+        [Route("get-game-genres")]
+        [Authorize("Anonymous")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetGameGenres()
+        {
+            var response = await _gamesMgmtService.GetGameGenres();
+
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest();
+        }
     }
 }

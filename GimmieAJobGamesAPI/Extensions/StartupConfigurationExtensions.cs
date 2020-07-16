@@ -30,18 +30,7 @@ namespace GimmieAJobGamesAPI.Extensions
     {
        
         public static IServiceCollection RegisterServices(this IServiceCollection services)
-        {
-            //services.AddScoped<IDAOFactory, MySqlDAOFactory>(f => new MySqlDAOFactory(new GAJGamesDbContext()));
-
-            //services.AddScoped<ISqlQueryService, SqlQueryService>();
-            //var domainAssembly = Assembly.Load(new AssemblyName(nameof(Domain)));
-            //var apiAssembly = Assembly.Load(new AssemblyName(nameof(GimmieAJobGamesAPI)));
-
-            //services.AddScoped < typeof(IRepository<*,*>, Repository <,>)
-            //        .Scan(scan => scan.FromAssemblies(apiAssembly, domainAssembly)
-            //                          .AddClasses()
-            //                          .AsMatchingInterface());
-
+        {            
             return services.RegisterRepositories()
                            .RegisterMgmtServices()
                            .RegisterMapperServices()
