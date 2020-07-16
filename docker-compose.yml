@@ -1,0 +1,96 @@
+version : '3.4'
+
+services:
+  gaj-store:
+      image: gaj-store:v0.2
+      container_name: gaj-store
+      environment:
+        - ConnectionString=Server=gaj-db;Database=GAJGamesDb;uid=root;password=somepassword
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ServiceConfig__serviceDiscoveryAddress=http://consul:8500
+        - ServiceConfig__serviceAddress=http://gaj-store:80
+        - ServiceConfig__serviceName=gaj-store
+        - ServiceConfig__serviceId=gaj-store-v1
+      ports:
+        - 43030:80 
+      depends_on:
+        - gaj-db
+
+  gaj-imgs:
+    image: gaj-imgs:v1.2.1
+    container_name: gaj-imgs
+    environment:
+      - ConnectionString=Server=gaj-db;Database=tpsImgsDB;uid=root;password=somepassword
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ServiceConfig__serviceDiscoveryAddress=http://consul:8500
+      - ServiceConfig__serviceAddress=http://gaj-imgs:80
+      - ServiceConfig__serviceName=gaj-imgs
+      - ServiceConfig__serviceId=gaj-imgs-v1
+    ports:
+      - "43010:80" 
+    depends_on:
+      - gaj-db
+
+  gaj-db:
+    image: gaj-db:v0.2
+    container_name: gaj-db
+    environment:
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=somepassword
+      - MYSQL_ROOT_PASSWORD=somepassword
+      - MYSQL_DATABASE=tpsImgsDB
+    ports: ["0.0.0.0:1001:3306"]
+
+  gaj-ids4:
+    image: gaj-ids4:v0.7
+    container_name: gaj-ids4
+    environment:
+      - IdsConnectionString=Server=gaj-idsdb;Database=Gaj-Ids;uid=root;password=somepassword
+      - UsersConnectionString=Server=gaj-idsdb;Database=Gaj-Users;uid=root;password=somepassword
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ServiceConfig__serviceDiscoveryAddress=http://consul:8500
+      - ServiceConfig__serviceAddress=http://gaj-ids4:80
+      - ServiceConfig__serviceName=gaj-ids4
+      - ServiceConfig__serviceId=gaj-ids4-v1
+    ports:
+      - 5000:80
+    depends_on:
+      - gaj-idsdb
+
+  gaj-idsdb:
+    image: gaj-idsdb:v0.1
+    container_name: gaj-idsdb
+    environment:            
+      - MYSQL_ROOT_PASSWORD=somepassword      
+    ports: ["0.0.0.0:1002:3306"]
+
+  gaj-gw:
+    image: gaj-gw:v0.9
+    container_name: gaj-gw
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80:80"
+  
+  gaj-router:
+    image: gaj-router:v0.4
+    container_name: gaj-router
+    environment:      
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ServiceConfig__serviceDiscoveryAddress=http://consul:8500
+      - ServiceConfig__serviceAddress=http://gaj-router:80
+      - ServiceConfig__serviceName=gaj-router
+      - ServiceConfig__serviceId=gaj-router-v1
+    ports:
+      - "43020:80" 
+
+  consul:
+    image: consul:latest
+    command: consul agent -dev -log-level=warn -ui -client=0.0.0.0
+    hostname: consul
+    container_name: consul
+    ports:
+      - "8500"
+  
+
+        
