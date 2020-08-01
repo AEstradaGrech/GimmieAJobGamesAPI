@@ -91,6 +91,5 @@ services:
     container_name: consul
     ports:
       - "8500"
-  
 
         

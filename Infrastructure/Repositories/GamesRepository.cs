@@ -99,7 +99,7 @@ namespace Infrastructure.Repositories
                         .Include(g => g.GameStudios)
                         .ThenInclude(gs => gs.Studio)
                         .ThenInclude(s => s.GamePromotions)
-                        .ThenInclude(sp => sp.Promotion)
+                        .ThenInclude(sp => sp.Promotion)                        
                         .Where(result => result.GameStudios.Any(gs => gs.StudioId == studioId));                      
     }
 

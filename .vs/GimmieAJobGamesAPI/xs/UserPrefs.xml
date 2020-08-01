@@ -1,30 +1,65 @@
 ﻿<Properties StartupConfiguration="{FBF2155A-4CFD-4C8F-804B-D5DA20464E48}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="docker-compose.yml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GimmieAJobGamesAPI/Controllers/GamesController.cs">
     <Files>
       <File FileName="Infrastructure/Specifications/Specification.cs" Line="27" Column="87" />
       <File FileName="Infrastructure/Specifications/CatalogueFilterSpec.cs" />
       <File FileName="Infrastructure/Extensions/CombineExpressionsExtension.cs" />
-      <File FileName="GimmieAJobGamesAPI/Startup.cs" Line="125" Column="10" />
-      <File FileName="GimmieAJobGamesAPI/Extensions/AuthorizationExtensions.cs" Line="21" Column="35" />
-      <File FileName="Infrastructure/Helpers/AuthorizationRequirement.cs" Line="29" Column="1" />
-      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/ConsulServiceRegistration/ServiceConfig.cs" Line="1" Column="1" />
-      <File FileName="Infrastructure/ConsulServiceRegistration/ServiceDiscoveryHostedService.cs" Line="1" Column="1" />
-      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" Line="151" Column="42" />
-      <File FileName="docker-compose.yml" Line="1" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Startup.cs" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/AuthorizationExtensions.cs" />
+      <File FileName="Infrastructure/Helpers/AuthorizationRequirement.cs" />
+      <File FileName="GimmieAJobGamesAPI/Controllers/GamesController.cs" Line="82" Column="10" />
+      <File FileName="Infrastructure/ConsulServiceRegistration/ServiceConfig.cs" />
+      <File FileName="Infrastructure/ConsulServiceRegistration/ServiceDiscoveryHostedService.cs" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/StartupConfigurationExtensions.cs" />
+      <File FileName="docker-compose.yml" />
+      <File FileName="Domain/EntitiesCF/Game.cs" />
+      <File FileName="Domain/EntitiesCF/GameStudio.cs" />
+      <File FileName="Domain/EntitiesCF/Promotion.cs" />
+      <File FileName="Domain/EntitiesCF/GamePromotion.cs" />
+      <File FileName="Domain/EntitiesCF/Studio.cs" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GameEntityConfiguration.cs" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/PromotionEntityTypeConfiguration.cs" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/StudioEntityConfiguration.cs" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GameStudioEntityTypeConfiguration.cs" />
+      <File FileName="Infrastructure/EntityTypeConfigurations/GamePromotionEntityTypeConfiguration.cs" />
+      <File FileName="Domain/JsonDateConverter.cs" />
+      <File FileName="Domain/Dtos/CatalogueGameDto.cs" Line="18" Column="45" />
+      <File FileName="Domain/Dtos/GameDetailDto.cs" Line="17" Column="20" />
+      <File FileName="Domain/Dtos/GamePromotionDto.cs" Line="1" Column="1" />
+      <File FileName="Domain/Dtos/StudioDto.cs" Line="15" Column="20" />
+      <File FileName="Domain/Dtos/StudioFullDto.cs" Line="13" Column="9" />
+      <File FileName="Domain/Filters/CatalogueFilter.cs" />
+      <File FileName="GimmieAJobGamesAPI/appsettings.json" />
+      <File FileName="GimmieAJobGamesAPI/appsettings.Development.json" />
+      <File FileName="GimmieAJobGamesAPI/Services/GamesMgmtService.cs" Line="71" Column="69" />
+      <File FileName="Infrastructure/Repositories/GamesRepository.cs" Line="94" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Extensions/SeedDataExtensions.cs" Line="1" Column="1" />
+      <File FileName="Infrastructure/Repositories/StudiosRepository.cs" Line="1" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GamesMapperService.cs" Line="49" Column="126" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/StudiosMapperService.cs" Line="1" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GameStudiosMapperService.cs" Line="1" Column="1" />
+      <File FileName="GimmieAJobGamesAPI/Services/MapperServices/GamePromotionsMapperService.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GimmieAJobGamesAPI" expanded="True">
             <Node name="GimmieAJobGamesAPI" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="GamesController.cs" selected="True" />
+              </Node>
               <Node name="Extensions" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
+              <Node name="Services" expanded="True">
+                <Node name="MapperServices" expanded="True" />
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="Infrastructure" expanded="True">
               <Node name="ConsulServiceRegistration" expanded="True" />
+              <Node name="EntityTypeConfigurations" expanded="True" />
+              <Node name="Extensions" expanded="True" />
               <Node name="Helpers" expanded="True" />
+              <Node name="Repositories" expanded="True" />
             </Node>
           </Node>
         </State>

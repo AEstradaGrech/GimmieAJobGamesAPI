@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 
 
-public class AuthorizationRequirement : AuthorizationHandler<AuthorizationRequirement>, IAuthorizationRequirement
+public class AuthorizationRequirement : AuthorizationHandler<AuthorizationRequirement>,IAuthorizationRequirement
 {
     private IEnumerable<string> _requiredScopes;
 
@@ -13,7 +13,8 @@ public class AuthorizationRequirement : AuthorizationHandler<AuthorizationRequir
         _requiredScopes = requiredScopes;
     }
 
-    protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, AuthorizationRequirement requirement)
+    protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context,
+        AuthorizationRequirement requirement)
     {
         var roleClaim = context.User.Identities
                                     .First()
