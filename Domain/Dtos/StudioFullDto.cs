@@ -10,8 +10,7 @@ namespace Domain.Dtos
             StudioGames = new List<CatalogueGameDto>();
             StudioGamePromotions = new List<GamePromotionDto>();
         }
-
-        public ICollection<CatalogueGameDto> StudioGames { get; set; }
-        public ICollection<GamePromotionDto> StudioGamePromotions { get; set; }
+        
+        public List<GamePromotionDto> StudioGamePromotions { get; set; }
     }
 }
