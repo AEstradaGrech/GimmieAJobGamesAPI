@@ -20,6 +20,7 @@ namespace Infrastructure.Context
             builder.ApplyConfiguration(new StudioEntityConfiguration());
             builder.ApplyConfiguration(new GamePromotionEntityTypeConfiguration());
             builder.ApplyConfiguration(new PromotionEntityTypeConfiguration());
+            builder.ApplyConfiguration(new GameDescriptionEntityConfiguration());
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
@@ -32,5 +33,6 @@ namespace Infrastructure.Context
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<GamePromotion> GamePromotions { get; set; }
         public DbSet<GameStudio> GameStudio { get; set; }
+        public DbSet<GameDescription> GameDescriptions { get; set; }
     }
 }

@@ -89,6 +89,7 @@ namespace Infrastructure.Repositories
                               .ThenInclude(gs => gs.Studio)
                               .ThenInclude(s => s.GamePromotions)
                               .ThenInclude(sp => sp.Promotion)
+                              .Include(g => g.GameDescription)
                               .SingleOrDefaultAsync(g => g.Id == gameId);
         }
 

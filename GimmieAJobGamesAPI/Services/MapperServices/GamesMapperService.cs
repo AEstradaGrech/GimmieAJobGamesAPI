@@ -51,6 +51,8 @@ namespace GimmieAJobGamesAPI.Services.MapperServices
             dto.GamePromotions = await _promotionsMapper.MapManyToDto(entity.GamePromotions) as List<GamePromotionDto>;
 
             studioPromos.ToList().ForEach(sp => dto.GamePromotions.Add(sp));
+
+            dto.Description = entity.GameDescription.Description ?? "";
           
             return dto;
         }
