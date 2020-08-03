@@ -3,14 +3,16 @@ using System;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(GAJDbContext))]
-    partial class GAJDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200803145045_GameDescriptionMig")]
+    partial class GameDescriptionMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,8 +51,7 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("MEDIUMTEXT");
+                        .IsRequired();
 
                     b.Property<Guid>("GameId");
 
@@ -62,7 +63,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("GameId")
                         .IsUnique();
 
-                    b.HasIndex("GameTitle")
+                    b.HasIndex("GameTitle", "Description")
                         .IsUnique();
 
                     b.ToTable("GameDescriptions");

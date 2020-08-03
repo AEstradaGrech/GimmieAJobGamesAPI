@@ -21,5 +21,6 @@ namespace Domain.EntitiesCF
         public decimal? Price { get; set; }
         public ICollection<GameStudio> GameStudios { get; set; }
         public ICollection<GamePromotion> GamePromotions { get; set; }
+        public GameDescription GameDescription { get; set; }
     }
 }

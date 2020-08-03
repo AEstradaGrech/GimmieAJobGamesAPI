@@ -12,12 +12,13 @@ namespace Infrastructure.EntityTypeConfigurations
             builder.HasKey(e => e.Id);
 
             builder.Property(e => e.Description)
-                   .IsRequired();
+                   .HasColumnType("MEDIUMTEXT")
+                   .IsRequired();                   
 
             builder.Property(e => e.GameTitle)
                    .IsRequired();
 
-            builder.HasIndex(e => new { e.GameTitle, e.Description })
+            builder.HasIndex(e => e.GameTitle)
                    .IsUnique();
 
             builder.HasOne(e => e.Game)

@@ -16,8 +16,8 @@ namespace GimmieAJobGamesAPI.Extensions
                           .SeedGames()
                           .SeedGameStudios()
                           .SeedPromotions()
-                          .SeedGamePromotions();
-                          //.SeedGameDescriptions();
+                          .SeedGamePromotions()
+                          .SeedGameDescriptions();
         }
 
         private static GAJDbContext SeedGameStudios(this GAJDbContext context)
@@ -146,18 +146,21 @@ namespace GimmieAJobGamesAPI.Extensions
 
         private static GAJDbContext SeedGameDescriptions(this GAJDbContext context)
         {
-            var games = context.Games.AsEnumerable();
+            if (context.GameDescriptions.Count() <= 0)
+            {
+                var games = context.Games.AsEnumerable();
 
-            if(games.Count() > 0)
-            {                
-                foreach(Game game in games)
+                if (games.Count() > 0)
                 {
-                    GameDescription desc = new GameDescription { GameId = game.Id, GameTitle = game.Title, Description = GetTestGameDescription() };
+                    foreach (Game game in games)
+                    {
+                        GameDescription desc = new GameDescription { GameId = game.Id, GameTitle = game.Title, Description = GetTestGameDescription() };
 
-                    context.GameDescriptions.Add(desc);
+                        context.GameDescriptions.Add(desc);
+                    }
+
+                    context.SaveChanges();
                 }
-
-                context.SaveChanges();
             }
 
             return context;
