@@ -14,9 +14,10 @@ namespace GimmieAJobGamesAPI.Extensions
         {
             return context.SeedStudios()
                           .SeedGames()
-                          .SeedGameStudios()                          
+                          .SeedGameStudios()
                           .SeedPromotions()
-                          .SeedGamePromotions();
+                          .SeedGamePromotions()
+                          .SeedGameDescriptions();
         }
 
         private static GAJDbContext SeedGameStudios(this GAJDbContext context)
@@ -141,6 +142,36 @@ namespace GimmieAJobGamesAPI.Extensions
             context.SaveChanges();
 
             return context;
+        }
+
+        private static GAJDbContext SeedGameDescriptions(this GAJDbContext context)
+        {
+            if (context.GameDescriptions.Count() <= 0)
+            {
+                var games = context.Games.AsEnumerable();
+
+                if (games.Count() > 0)
+                {
+                    foreach (Game game in games)
+                    {
+                        GameDescription desc = new GameDescription { GameId = game.Id, GameTitle = game.Title, Description = GetTestGameDescription() };
+
+                        context.GameDescriptions.Add(desc);
+                    }
+
+                    context.SaveChanges();
+                }
+            }
+
+            return context;
+        }
+
+        private static string GetTestGameDescription()
+        {            
+            return @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum leo in sem pulvinar scelerisque. Duis quis scelerisque sem, quis fringilla velit.
+                     Suspendisse eget porttitor velit, et tincidunt arcu. Fusce finibus enim sit amet odio dignissim, quis consequat tortor placerat. Duis et sagittis ligula.
+                     Cras diam risus, dictum nec tortor eget, luctus semper mauris. Nunc ac rhoncus velit. Quisque feugiat magna a ex suscipit, ut tincidunt sapien venenatis.
+                     Aliquam lacinia blandit quam id porttitor. Maecenas volutpat lacinia lectus id venenatis. Morbi semper mi id imperdiet posuere.";
         }
 
         private static List<Promotion> GetPromotions()

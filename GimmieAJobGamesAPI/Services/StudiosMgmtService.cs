@@ -28,7 +28,7 @@ namespace GimmieAJobGamesAPI.Services
 
             var studio = await _studiosMapper.MapToDto(await _studiosRepo.GetStudioByName(studioName));
 
-            studio.StudioGames = studioGames as ICollection<CatalogueGameDto>;
+            studio.StudioGames = studioGames as List<CatalogueGameDto>;
 
             return studio;
         }

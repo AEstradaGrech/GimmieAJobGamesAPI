@@ -69,6 +69,7 @@ namespace GimmieAJobGamesAPI.Controllers
 
         [HttpGet]
         [Route("get-game-detail")]
+        [Authorize(Policy = "Anonymous")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> GetGameDetail([FromQuery]Guid gameId)
